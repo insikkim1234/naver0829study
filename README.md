@@ -27,6 +27,9 @@ git-bash
    * branch            main       -> FETCH_HEAD
    * [new branch]      main       -> origin/main
 
+cat README.md
+ 하면 깃허브 내용 블러오기
+
 
  
  
