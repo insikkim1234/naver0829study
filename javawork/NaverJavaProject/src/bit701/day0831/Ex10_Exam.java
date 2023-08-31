@@ -28,7 +28,7 @@ public class Ex10_Exam {
 		
 		if(total>6000) {
 			System.out.println("총금액: "+total);
-			System.out.println("5개 이상 10%할인된 금액: "+(total*0.9));
+			System.out.println("5개 이상 10%할인된 금액: "+(int)(total*0.9));
 			}
 		else
 			System.out.println("총금액: "+total);
