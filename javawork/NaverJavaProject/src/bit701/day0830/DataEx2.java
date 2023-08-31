@@ -13,6 +13,8 @@ public class DataEx2 {
 		System.out.println("내혈액형은 "+args[2]+" 입니다");
 		//김인식 강남구 ab
 		System.out.println("실수형 데이터 타입");
+		
+		
 		float f1=1234.567891234f;
 		//1234.567891234는 더블 이므로(float는 소수점포함 여덟자리까지)
 		//뒤에 f를 붙여서 float로 만들어줌
