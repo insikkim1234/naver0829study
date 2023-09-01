@@ -1,5 +1,6 @@
 package bit701.day0831;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Ex10_Exam {
@@ -17,21 +18,35 @@ public class Ex10_Exam {
 		 * 5개 이상 10프로 할인된 금액 : 5400 원
 		 */
 		Scanner sc=new Scanner(System.in);
-		System.out.println("수량을 입력하시오");
-		int num=Integer.parseInt(sc.nextLine());
 		
-		System.out.println("단가를 입력하시오");
-		int price=Integer.parseInt(sc.nextLine());
+		NumberFormat numFormat=NumberFormat.getInstance();
+		String  sangpum="";
+		int su=0,dan=0,total=0;
 		
-		int total=num*price;
+		//입력
+		System.out.println("상품명");
+		sangpum=sc.nextLine();
+		System.out.println("수량");
+		su=sc.nextInt();
+		System.out.println("단가");
+		dan=sc.nextInt();
 		
 		
-		if(total>6000) {
-			System.out.println("총금액: "+total);
-			System.out.println("5개 이상 10%할인된 금액: "+(int)(total*0.9));
-			}
-		else
-			System.out.println("총금액: "+total);
+		//계산
+		//총금액
+		total=su*dan;
+		
+		System.out.println("총금액="+numFormat.format(total)+"원");
+		
+		//5개 이상 할인받는 조건 추가
+		
+		if (su>=5)
+		{
+			total=(int)(total*0.9);//integer에 double 곱하면 오류
+			System.out.printf("5개 이상 10%% 할인된 금액 : %d 원\n",total);//printf에서만 %을 출력하고 싶으면 %%쓰자
+			System.out.printf("5개 이상 10%% 할인된 금액 : %s 원\n",numFormat.format(total));//포멧으로 바꾼건 문자열취급
+		}
+		
 
 }
 }

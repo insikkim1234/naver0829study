@@ -19,7 +19,7 @@ public class Ex7_Format {
 		//패턴1
 		SimpleDateFormat dateFormat2=new SimpleDateFormat("yyyy년MM월dd일 a HH:mm:ss EEEE");
 		//a 오전 오후 EEEE요일길게 hh12시간기준
-		System.out.println(dateFormat1.format(date));
+		System.out.println(dateFormat2.format(date));
 		
 		//숫자를 ㅍ맷 양식에 맞게 출력하기
 		int money=4567890;
