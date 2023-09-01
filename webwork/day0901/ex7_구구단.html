@@ -10,5 +10,23 @@
         start와 end값을 입력받아 해당 구구단을 출력하시오
         단,start가 end보다 클경우 두값을 서로 바꾼후 출력하시오
     -->
+    <script>
+        let start=prompt("시작 단을 입력하시오");
+        let end=prompt("끝단을 입력하시오");
+        if(start>end){
+            temp=start;
+            start=end;
+            end=temp;
+        }
+        for(let i=start;i<=end;i++){
+            document.write(`${i}단&nbsp;&nbsp;&nbsp;`);
+        }
+        for(let i=1;i<=9;i++){
+            document.write(`<br>`);
+            for(let j=start;j<=end;j++){
+                document.write(`${j}X${i}=${j*i}&nbsp;`);
+            }
+        }
+    </script>
 </body>
 </html>

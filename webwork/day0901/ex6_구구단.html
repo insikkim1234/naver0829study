@@ -6,9 +6,28 @@
     <title>Document</title>
 </head>
 <body>
+
     <!--1.
         구구단 숫자 2~9까지 입력을 받아서 해당 구구단 출력하시오
         단 2~9까지의 값이 아닐경우 이미지 아무거나 출력하기
     -->
+    <script>
+    let dan=prompt("숫자 2~9까지 입력");
+
+    if(dan<2||dan>9){
+        document.write(`<img src="../mycar/mycar5.png">`);
+        
+    }
+    else{
+        document.write(`${dan} 6단`);
+        for(let i=1;i<=9;i++){
+            document.write(`<br>${dan} X ${i} =${dan*i}`);
+        }
+
+
+    }
+
+
+    </script>
 </body>
 </html>
