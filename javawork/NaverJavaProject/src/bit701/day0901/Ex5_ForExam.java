@@ -8,7 +8,7 @@ public class Ex5_ForExam {
 		Scanner sc=new Scanner(System.in);
 		//1.숫자 n을 입력받은후 1부터 n까지의 총 합계를 출력하시오
 		
-		/*System.out.println("자연수를 입력하시오");
+		System.out.println("자연수를 입력하시오");
 		int n=sc.nextInt();
 
 		int total=0;
@@ -16,7 +16,7 @@ public class Ex5_ForExam {
 		for(int i=1; i<=n; i++)
 			total+=i;
 
-		System.out.printf("1~%d까지 총 합은 %d",n ,total);*/
+		System.out.printf("1~%d까지 총 합은 %d",n ,total);
 		
 
 
@@ -32,7 +32,7 @@ public class Ex5_ForExam {
 			5 * 9 = 45
 
 		 */
-		System.out.println("구구단 몇단?");
+		/*System.out.println("구구단 몇단?");
 		int dan=sc.nextInt();
 
 		if(dan<2||dan>9){
@@ -46,7 +46,7 @@ public class Ex5_ForExam {
 		for(int i=1;i<=9;i++) {
 			
 			System.out.printf("%6d  X  %d = %2d\n",dan,i,dan*i);
-		}
+		}*/
 
 
 

@@ -40,6 +40,7 @@ public class Ex4_BreakContinue {
 			}
 			System.out.println();
 		}
+		
 		System.out.println("-".repeat(30));
 
 	}

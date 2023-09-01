@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es6 ecma에서 2015년 채택된 자바스크립트 표준
+        /*
+        es6에서 추가된 기능
+        1. 블록범위 변수 let(영역형변수) const(상수) 그 이전에는 var하나만 사용(함수형변수)
+        2. 함수에서 기본 매개변수
+        3.템플릿 리터럴 (multiline literal)````` 작은따움표를 이걸로 넣어야 한다
+        4. 화살표 함수
+        5.클래스,상속
+        6.모듈개념추가
+
+        
+        */
+        var a=10;
+        document.write(`<h3>a=${a}</h3>`);
+        if (true)
+        {
+            var a=20;//var는 지역에서 고쳐져도 덮어진다
+            document.write(`<h3>a=${a}</h3>`);      
+
+        }
+        document.write(`<h3>a=${a}</h3><hr>`);
+
+        let b=10;
+        document.write(`<h3>b=${b}</h3>`);
+        if (true)
+        {
+            let b=20;//이 경우 자바처럼 처리된다 (구역이 종료되면 원래대로 10으로 돌아간다) 현재 var보다더많이 사용
+            document.write(`<h3>b=${b}</h3>`);      
+
+        }
+        document.write(`<h3>b=${b}</h3><hr>`);
+
+        let s1="Hello";//변수선언
+        const MSG="Happy Day";//상수선언
+        document.write(`<h3>s1=${s1},MSG=${MSG}<br>`);//br은 \n
+
+        //값 변경
+        s1="안녕하세요";
+        //MSG="반가워요";//ㅇㅗ류발생(상수는 값변경을 할수없기때문에)
+        document.write(`<h3>s1=${s1},MSG=${MSG}<br>`);
+
+    </script>
+</body>
+</html>
