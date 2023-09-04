@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h3.title{
+            color:blue;
+            background-color :aquamarine;
+            width:300px;
+            padding-left:150px; /*태그 안쪽여백*/
+        }
+        h4{
+            color: blanchedalmond;
+            font-family: 'Comic Sans MS';
+            margin-left: 100px;  /*태그 바깥쪽여백*/
+        }
+    </style>
 </head>
 <body>
 
@@ -11,18 +24,22 @@
         구구단 숫자 2~9까지 입력을 받아서 해당 구구단 출력하시오
         단 2~9까지의 값이 아닐경우 이미지 아무거나 출력하기
     -->
+    <h2>구구단 입력받아 출력하기</h2>
     <script>
-    let dan=prompt("숫자 2~9까지 입력");
+    let dan=Number(prompt("출력할 구구단을 입력하세요"));
+    console.log(typeof(dan));
 
     if(dan<2||dan>9){
-        document.write(`<img src="../mycar/mycar5.png">`);
+        document.write(`<img src="../mycar/mycar5.png" width=200>`);
         
     }
     else{
-        document.write(`${dan} 6단`);
+        let s="<h3 class='title'> ** "+dan+"단 **</h3>"
+        
         for(let i=1;i<=9;i++){
-            document.write(`<br>${dan} X ${i} =${dan*i}`);
+            s+=`<h4>${dan} x ${i}=${dan*i}</h4>`;
         }
+        document.write(s);
 
 
     }
