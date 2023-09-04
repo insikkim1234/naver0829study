@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        div#msg{
+            font-family: 'Gamja Flower';
+            font-size:30px;
+            margin-top:30px;
+            color: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txtmsg">
+    <input type="button" id="btn1" value="읽기">
+    <div id="msg">Message 출력되는곳</div>
+    <script>
+        let t=document.getElementById("txtmsg");
+        let b=document.getElementById("btn1");
+        let msg=document.getElementById("msg");
+
+        //버튼 이벤트-버튼클릭시 해당함수의 호출
+        b.onclick=function(){
+            //입력한 문자열을 가져오고
+                let data=t.value;
+            // msg에 출력
+                //msg.innerText="<u>"+data"</u>";//innertext는 태그도 그대로 문자열로 출력
+                
+                //msg.innerHTML="<u>"+data+"</u>";//태그가 적용되도록 하려면 innerHTML
+                msg.innerHTML+="<br><u>"+data+"</u>";   //+=:기존 데이터에 추가로 출력이 되도록 함    
+            
+                //입력한 값을 지운후 포커스를 준다(바로 입력할수 있도록 검색창에서 내가 입력했던것이 사라지는 역할)
+                t.value="";
+                t.focus();
+        }
+    </script>
+</body>
+</html>

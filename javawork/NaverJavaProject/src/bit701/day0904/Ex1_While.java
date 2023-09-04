@@ -20,6 +20,8 @@ public class Ex1_While {
 		}
 		System.out.println();
 		System.out.println("빠져나온후 a값"+a);
+		
+		
 		a=65;
 		while(true)
 		{
@@ -36,6 +38,10 @@ public class Ex1_While {
 			System.out.print((char)a++);
 		}while(a<=90);//조건뒤에 반드시 ;추가
 		
+		
+		
+		
+		System.out.println();
 		int n=10;
 		/*while(n<10)
 		{
@@ -45,7 +51,7 @@ public class Ex1_While {
 			System.out.println(n--);
 			if(n==0)
 				break;
-		}while(n<10);//do while은 무조건 한번은  실행하기에 무한루프
+		}while(n<10);//do while은 무조건 한번은  실행하기에 무한루프하기 때문에 0일때 break 문으로 탈출
 	}
 
 }
