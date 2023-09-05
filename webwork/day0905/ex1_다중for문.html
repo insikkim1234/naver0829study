@@ -8,10 +8,11 @@
 <body>
     <h3>숫자를 입력하면 그숫자만큼 행,열로 별표 출력하기</h3>
     <input type="text" id="su1" size="3">
-    <div style="margin-top: 30;font-size: 25;" id="result">111</div>
+    <div style="margin-top: 30;font-size: 25;" id="result">임시용</div>
     <script>
         document.getElementById("su1").onkeyup=function(e){
             //alert("keyup");//onclick은 누를때 반응//onkeyup은입력시 바반응
+            //e는 해당 행위를 하였을때 주는 인자값
             console.log(this.value);//값을 읽어오는 방법 1this :자기자신의 요소값
             console.log(e.target);//값을 읽어오는 방법 2event가 발생되는 target(자기자신)이 입력한 value 값
             console.log(e.keyCode);//아스키 코드 값을 알수이있는 방법(엔터를 누를때 처리 가능)
@@ -33,7 +34,7 @@
             document.getElementById("result").innerHTML=s;
 
             //입력한값 지우기
-            this.value="";
+            this.value="";//this는 앞에 함수 만들때 요소
 
             //포커스 주기
             this.focus();
