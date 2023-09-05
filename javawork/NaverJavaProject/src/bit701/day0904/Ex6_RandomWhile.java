@@ -6,6 +6,7 @@ public class Ex6_RandomWhile {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
+		
 		int rnd
 		,count,num;
 		
@@ -24,6 +25,8 @@ public class Ex6_RandomWhile {
 				System.out.println(++count+":");
 				//num=sc.nextInt();
 				num=Integer.parseInt(sc.nextLine());
+				
+				
 				if(num>rnd)
 					System.out.println("\t"+num+"보다작습니다");
 				else if(num<rnd)
@@ -32,8 +35,9 @@ public class Ex6_RandomWhile {
 					System.out.println("\t**정답입니다("+rnd+")");
 					//계속할지 묻는다
 					System.out.println("계속하려면 y 입력 y가 아닐경우 종료");
-					
 					String ans=sc.nextLine();
+					
+					
 					if(ans.equalsIgnoreCase("y"))//대소문자 상관없이 철자만 맞으면 true
 					{
 						System.out.println("새로운 난수 발생");

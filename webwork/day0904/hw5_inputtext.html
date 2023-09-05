@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtmsg">
+    <input type="button" value="읽기" id="btn1">
+    <div id="msg">메세지 출력되는곳</div>
+    <script>
+        let t=document.getElementById("txtmsg");
+        let b=document.getElementById("btn1");
+        let msg=document.getElementById("msg");
+
+        //버튼클릭시 이벤트 호출
+        b.onclick=function(){
+            let data=t.value;
+
+            msg.innerHTML+="<br><u>"+data+"</u>";
+            t.value="";
+            t.focus();
+        }
+
+    </script>
+</body>
+</html>
