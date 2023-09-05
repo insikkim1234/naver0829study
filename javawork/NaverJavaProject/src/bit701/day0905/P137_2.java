@@ -17,7 +17,32 @@ public class P137_2 {
 			
 			int strNum=sc.nextInt();
 			
-			if(strNum==1)
+			switch(strNum)
+			{
+			case 1:
+				System.out.println("예금액>>");
+				money+=sc.nextInt();
+				break;
+			case 2:
+				System.out.println("출금액>>");
+				money-=sc.nextInt();
+				break;
+			case 3:
+				System.out.printf("잔고>>%d\n",money);
+				break;
+			case 4:
+				
+				run=false;
+				break;
+			default:
+				System.out.println("다시 입력:");
+				continue;
+				
+			}
+		}
+		System.out.println("프로그램 종료");
+			
+			/*if(strNum==1)
 			{
 				System.out.println("예금액>>");
 				money+=sc.nextInt();
@@ -41,7 +66,7 @@ public class P137_2 {
 				System.out.println("다시 입력:");
 				continue;
 			
-		}
+		}*/
 		
 	
 
