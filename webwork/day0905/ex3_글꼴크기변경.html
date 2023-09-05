@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        #message{
+            
+            font-family: 'Gamja Flower';
+            background-color: #cfcfcc;
+            color: palevioletred;
+
+
+            position: absolute;
+            left:30px;
+            top:100px;
+            width:500px;
+            height:150px;
+
+            box-shadow: 5px 5px 5px pink;
+
+            text-align: center;
+            line-height: 150px;/*한줄일 경우 hight와 같을값을 줄경우 세로방향 가운데에 온다*/
+        }
+
+        #buttons{
+            position:absolute;
+            left:200px;
+            top:300px;
+        }
+        #buttons button
+        {
+            width:60px;
+            height:60px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="message" style="font-size: 30px;">Have a nice day</div>
+    <div id="buttons">
+        <button type="button" id="btnminus">-</button>
+        <button type="button" id="btnplus">+</button>
+    </div>
+
+    <script>
+        //+버튼을 누르면 폰트사이즈인 30px를 얻을 수 있음
+        document.getElementById("btnplus").onclick=function(){
+            let m=document.getElementById("message");
+            //alert(m.style.fontSize);
+            let fs=parseInt(m.style.fontSize,10);//10진수로 숫자 부분만 가져오기
+            //alert(fs);
+            //얻어온 글꼴크기에 3증가
+            //fs+=3;
+            //글꼴 크기 증가시키기(fs가 70보다 작은경우만 변경)
+            if(fs<70)
+            {
+                fs+=3;
+                m.style.fontSize=fs+"px";
+            }
+            
+            
+        }
+
+
+
+         //-버튼
+         document.getElementById("btnminus").onclick=function(){
+            let m=document.getElementById("message");
+            //alert(m.style.fontSize);
+            let fs=parseInt(m.style.fontSize,10);//10진수로 숫자 부분만 가져오기
+            //alert(fs);
+            //얻어온 글꼴크기에 3증가
+            //fs+=3;
+            //글꼴 크기 증가시키기(fs가 5보다 큰경우에만 변경)
+            if(fs>5)
+            {
+                fs-=3;
+                m.style.fontSize=fs+"px";
+            }
+            
+            
+        }
+    </script>
+
+</body>
+</html>

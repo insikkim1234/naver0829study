@@ -21,37 +21,29 @@
     </style>
 </head>
 <body>
-    <input type="button" value="새로운 난수 발생하기" id="btnrnd">
+    <input type="button" value="새로운 난수 발생" id="btnrnd">
     <br><br>
-    <input type="text" id="txtsu" style="width:70px;font-size: 25px;" autofocus>
+    <input type="text" id="txtsu" style="width:70px;font-size:25px;"autofocus  >
     <button type="button" id="btnresult" style="font-size: 25px;">ok</button>
     <div id="message"></div>
-    <!--기본이미지-->
-    <img src="../mycar/mycar1.png" width="200" id="carphoto">
 
     <script>
-        let rnd;//난수를 구할 변수
+        let rnd;
         let m;
-        //난수버튼 이벤트
+
         document.getElementById("btnrnd").onclick=function(){
-            //1~100사이의 난수구하기
-            rnd=parseInt((Math.random()*100))+1;
-            //console에 출력
-            //console.log(rnd);
-            //난수발생시 경고창 출력합니다
+            rnd=parseInt(Math.random()*100)+1;
+
             alert("새로운 난수 발생");
-            //출력할 div요소값
+
+            //div에 출력
             m=document.getElementById("message");
-            m.innerHTML=""; //메시지 영역 지우기
+            m.innerHTML="";
         }
 
-        //ok버튼 이벤트
         document.getElementById("btnresult").onclick=function(){
-            
-            //입력한 값을 읽어서 숫자타입으로 변환
             let su=Number(document.getElementById("txtsu").value);
 
-            //비교
             if(su>rnd)
             {
                 m.innerHTML+=su+"보다 작습니다<br>";
@@ -63,20 +55,18 @@
             else
             {
                 m.innerHTML+=`축하합니다 정답입니다(${rnd})<br>`;
-
-                //정답을 맞추면 이미지 변경(1~15사이 난수를 구한 뒤 그사진으로 변경)
                 let idx=parseInt(Math.random()*15)+1;
-                //이미지의 요소값을 얻는다
+
                 let photo=document.getElementById("carphoto");
                 photo.setAttribute("src",`../mycar/mycar${idx}.png`);
+
+                
             }
-            //입력값 지운후 포커스 주기 (입력하고 버튼을 누를때마다 입력한 값을 지우고 커서를 띄워주는것 )
             document.getElementById("txtsu").value="";
             document.getElementById("txtsu").focus();
-            
         }
     </script>
 
-    
+    <img src="../mycar/mycar1.png" width="200" id="carphoto">
 </body>
 </html>

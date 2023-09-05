@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #time{
+            font-size:40px;
+            background-color: #cfcfcc;
+            color: palevioletred;
+
+
+            position: absolute;
+            left:30px;
+            top:100px;
+            width:500px;
+            height:150px;
+
+            box-shadow: 5px 5px 5px pink;
+
+            text-align: center;
+            line-height: 150px;/*한줄일 경우 hight와 같을값을 줄경우 세로방향 가운데에 온다*/
+        }
+    </style>
+    <script>
+        //일반 사용자 함수
+        function init_time()
+        {
+            //alert("호출?");
+            //현재 날짜와 시간 얻어서 출력
+            let date=new Date();
+            let y=date.getFullYear();
+            let m=date.getMonth()+1;
+            let d=date.getDate();
+
+            let hh=date.getHours();
+            let mm=date.getMinutes();
+            let ss=date.getSeconds();
+
+            time.innerHTML=`${y}-${m}-${d}  ${hh}-${mm}-${ss}`;
+        }
+
+        //처음 시작시 init_time함수 호출
+        window.onload=function(){
+            
+            init_time();
+            //1초마다 반ㅂㄱ 호출
+            setInterval(function(){
+                init_time();
+            },1000);
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div id="time">xxxx-xx-xx 00:00:00</div>
+    <script>
+
+    </script>
+</body>
+</html>
