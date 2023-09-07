@@ -15,7 +15,7 @@ public class Ex3_ArrayBingo {
 		while(true)
 		{
 			binggo=0;
-			count=0;
+			
 			//3행 3열의 1부터 3까지 숫자 임의로 넣기
 			for(int i=0;i<data.length;i++)
 			{
@@ -41,20 +41,23 @@ public class Ex3_ArrayBingo {
 				if
 				( data[i][0]==data[i][1]&&data[i][1]==data[i][2]) 
 				{
-					count++;
+					binggo++;
 				}
 				 if(data[0][i]==data[1][i]&&data[1][i]==data[2][i])
 				{
-					count++;
+					binggo++;
 				}
 				
 			}
 			if(data[0][0]==data[1][1]&&data[1][1]==data[2][2])
-				count++;
+				binggo++;
 			if(data[0][2]==data[1][1]&&data[1][1]==data[2][0])
-				count++;
+				binggo++;
 			
-			System.out.println("빙고개수는 :"+count);
+			if(binggo==0)
+				System.out.println("꽝");
+			else
+				System.out.println("빙고개수는 :"+binggo);
 			
 			
 			
