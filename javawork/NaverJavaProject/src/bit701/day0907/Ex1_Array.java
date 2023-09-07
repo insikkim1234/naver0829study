@@ -46,15 +46,14 @@ public class Ex1_Array {
 			avg[i]=(double)sum[i]/2;
 			
 		}
+		
+		System.out.println("번호\t이름\t국어\t영어\t총점\t평균");
 		for(int i=0;i<count;i++)
 		{
-			System.out.println(i+1+"\t"+kor[i]+"\t"+eng[i]+"\t"+sum[i]+"\t"+avg[i]);
+			System.out.println(i+1+"\t"+names[i]+"\t"+kor[i]+"\t"+eng[i]+"\t"+sum[i]+"\t"+avg[i]);
 			
 		}
-		
-		
-		
-		
+			
 
 	}
 
