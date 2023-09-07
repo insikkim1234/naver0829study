@@ -29,16 +29,7 @@ public class Ex15_ArrayJungbok {
 				}
 			}
 			
-			/*for(int j=0;j<data.length;j++)
-			{
-				for(int k=1;k<data.length;k++)
-				{
-					if(data[j]==data[k])
-					{
-						continue Exit;
-					}
-				}
-			}*/
+			
 		}
 		//한줄에 5ㅐ씩 출력
 		for(int i=0;i<data.length;i++)

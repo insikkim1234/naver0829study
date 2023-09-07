@@ -18,7 +18,7 @@
 #     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
 # This output file may be truncated or incomplete.
 #
-#  Out of Memory Error (os_windows.cpp:3550), pid=17948, tid=7620
+#  Out of Memory Error (os_windows.cpp:3550), pid=15580, tid=7232
 #
 # JRE version:  (17.0.8+9) (build )
 # Java VM: Java HotSpot(TM) 64-Bit Server VM (17.0.8+9-LTS-211, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
@@ -27,16 +27,16 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages bit701.day0906.Ex8_ArraySearch
+Command Line: -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages bit701.day0906.Ex12_ArraySearchName
 
 Host: Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz, 8 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.2070)
-Time: Wed Sep  6 12:02:33 2023  Windows 11 , 64 bit Build 22621 (10.0.22621.2070) elapsed time: 0.007564 seconds (0d 0h 0m 0s)
+Time: Wed Sep  6 20:57:49 2023  Windows 11 , 64 bit Build 22621 (10.0.22621.2070) elapsed time: 0.006190 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
-Current thread (0x0000020535798dd0):  JavaThread "Unknown thread" [_thread_in_vm, id=7620, stack(0x00000029a1600000,0x00000029a1700000)]
+Current thread (0x00000236838270a0):  JavaThread "Unknown thread" [_thread_in_vm, id=7232, stack(0x000000b2b2400000,0x000000b2b2500000)]
 
-Stack: [0x00000029a1600000,0x00000029a1700000]
+Stack: [0x000000b2b2400000,0x000000b2b2500000]
 Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
 V  [jvm.dll+0x677d0a]
 V  [jvm.dll+0x7d8c54]
@@ -65,22 +65,22 @@ C  [ntdll.dll+0x5aa68]
 ---------------  P R O C E S S  ---------------
 
 Threads class SMR info:
-_java_thread_list=0x00007ffba1c859d8, length=0, elements={
+_java_thread_list=0x00007ffbc13759d8, length=0, elements={
 }
 
 Java Threads: ( => current thread )
 
 Other Threads:
-  0x0000020535804030 GCTaskThread "GC Thread#0" [stack: 0x00000029a1700000,0x00000029a1800000] [id=10496]
-  0x0000020535814cf0 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000029a1800000,0x00000029a1900000] [id=17420]
-  0x0000020535816010 ConcurrentGCThread "G1 Conc#0" [stack: 0x00000029a1900000,0x00000029a1a00000] [id=14372]
+  0x0000023683895040 GCTaskThread "GC Thread#0" [stack: 0x000000b2b2500000,0x000000b2b2600000] [id=14312]
+  0x00000236838a6600 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000b2b2600000,0x000000b2b2700000] [id=9724]
+  0x00000236838a7010 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000b2b2700000,0x000000b2b2800000] [id=3664]
 
-[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffba14bb047]
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbc0bab047]
 
 VM state: not at safepoint (not fully initialized)
 
 VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
-[0x0000020535794b00] Heap_lock - owner thread: 0x0000020535798dd0
+[0x0000023683823b10] Heap_lock - owner thread: 0x00000236838270a0
 
 Heap address: 0x0000000702800000, size: 4056 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
 
@@ -94,7 +94,7 @@ Heap:
  garbage-first heap   total 0K, used 0K [0x0000000702800000, 0x0000000800000000)
   region size 2048K, 0 young (0K), 0 survivors (0K)
 
-[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffba18a1499]
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbc0f91499]
 
 GC Heap History (0 events):
 No events
@@ -115,7 +115,7 @@ VM Operations (0 events):
 No events
 
 Events (1 events):
-Event: 0.005 Loaded shared library C:\Program Files\Java\jdk-17\bin\java.dll
+Event: 0.004 Loaded shared library C:\Program Files\Java\jdk-17\bin\java.dll
 
 
 Dynamic libraries:
@@ -124,27 +124,27 @@ Dynamic libraries:
 0x00007ffbf5ef0000 - 0x00007ffbf5fb4000 	C:\Windows\System32\KERNEL32.DLL
 0x00007ffbf3c40000 - 0x00007ffbf3fe4000 	C:\Windows\System32\KERNELBASE.dll
 0x00007ffbf3610000 - 0x00007ffbf3721000 	C:\Windows\System32\ucrtbase.dll
-0x00007ffbe9b70000 - 0x00007ffbe9b89000 	C:\Program Files\Java\jdk-17\bin\jli.dll
-0x00007ffbe8a70000 - 0x00007ffbe8a8b000 	C:\Program Files\Java\jdk-17\bin\VCRUNTIME140.dll
+0x00007ffbeb410000 - 0x00007ffbeb429000 	C:\Program Files\Java\jdk-17\bin\jli.dll
+0x00007ffbeb3f0000 - 0x00007ffbeb40b000 	C:\Program Files\Java\jdk-17\bin\VCRUNTIME140.dll
 0x00007ffbf4480000 - 0x00007ffbf4530000 	C:\Windows\System32\ADVAPI32.dll
 0x00007ffbf5550000 - 0x00007ffbf55f7000 	C:\Windows\System32\msvcrt.dll
 0x00007ffbf60c0000 - 0x00007ffbf6166000 	C:\Windows\System32\sechost.dll
 0x00007ffbf4fa0000 - 0x00007ffbf50b7000 	C:\Windows\System32\RPCRT4.dll
 0x00007ffbf5370000 - 0x00007ffbf551a000 	C:\Windows\System32\USER32.dll
 0x00007ffbf3850000 - 0x00007ffbf3876000 	C:\Windows\System32\win32u.dll
-0x00007ffbf4530000 - 0x00007ffbf4559000 	C:\Windows\System32\GDI32.dll
 0x00007ffbd5da0000 - 0x00007ffbd602f000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2070_none_2713e6537381f706\COMCTL32.dll
+0x00007ffbf4530000 - 0x00007ffbf4559000 	C:\Windows\System32\GDI32.dll
 0x00007ffbf3b20000 - 0x00007ffbf3c39000 	C:\Windows\System32\gdi32full.dll
 0x00007ffbf3730000 - 0x00007ffbf37ca000 	C:\Windows\System32\msvcp_win.dll
 0x00007ffbec7d0000 - 0x00007ffbec7da000 	C:\Windows\SYSTEM32\VERSION.dll
 0x00007ffbf4c20000 - 0x00007ffbf4c51000 	C:\Windows\System32\IMM32.DLL
-0x00007ffbeb3e0000 - 0x00007ffbeb3ec000 	C:\Program Files\Java\jdk-17\bin\vcruntime140_1.dll
-0x00007ffbe8240000 - 0x00007ffbe82ce000 	C:\Program Files\Java\jdk-17\bin\msvcp140.dll
-0x00007ffba11d0000 - 0x00007ffba1dae000 	C:\Program Files\Java\jdk-17\bin\server\jvm.dll
+0x00007ffbe85a0000 - 0x00007ffbe85ac000 	C:\Program Files\Java\jdk-17\bin\vcruntime140_1.dll
+0x00007ffbe7580000 - 0x00007ffbe760e000 	C:\Program Files\Java\jdk-17\bin\msvcp140.dll
+0x00007ffbc08c0000 - 0x00007ffbc149e000 	C:\Program Files\Java\jdk-17\bin\server\jvm.dll
 0x00007ffbf4e60000 - 0x00007ffbf4e68000 	C:\Windows\System32\PSAPI.DLL
-0x00007ffbf07e0000 - 0x00007ffbf07e9000 	C:\Windows\SYSTEM32\WSOCK32.dll
-0x00007ffbf6170000 - 0x00007ffbf61e1000 	C:\Windows\System32\WS2_32.dll
+0x00007ffbf0790000 - 0x00007ffbf0799000 	C:\Windows\SYSTEM32\WSOCK32.dll
 0x00007ffbdcc00000 - 0x00007ffbdcc34000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffbf6170000 - 0x00007ffbf61e1000 	C:\Windows\System32\WS2_32.dll
 0x00007ffbf2600000 - 0x00007ffbf2618000 	C:\Windows\SYSTEM32\kernel.appcore.dll
 0x00007ffbeecb0000 - 0x00007ffbeecba000 	C:\Program Files\Java\jdk-17\bin\jimage.dll
 0x00007ffbe1fc0000 - 0x00007ffbe21ee000 	C:\Windows\SYSTEM32\DBGHELP.DLL
@@ -152,14 +152,14 @@ Dynamic libraries:
 0x00007ffbf4e70000 - 0x00007ffbf4f47000 	C:\Windows\System32\OLEAUT32.dll
 0x00007ffbe1e40000 - 0x00007ffbe1e72000 	C:\Windows\SYSTEM32\dbgcore.DLL
 0x00007ffbf37d0000 - 0x00007ffbf384a000 	C:\Windows\System32\bcryptPrimitives.dll
-0x00007ffbeb440000 - 0x00007ffbeb465000 	C:\Program Files\Java\jdk-17\bin\java.dll
+0x00007ffbeb450000 - 0x00007ffbeb475000 	C:\Program Files\Java\jdk-17\bin\java.dll
 
 dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
 symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-17\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2070_none_2713e6537381f706;C:\Program Files\Java\jdk-17\bin\server
 
 VM Arguments:
 jvm_args: -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages 
-java_command: bit701.day0906.Ex8_ArraySearch
+java_command: bit701.day0906.Ex12_ArraySearchName
 java_class_path (initial): D:\naver0829\workstudy\javawork\NaverJavaProject\bin
 Launcher Type: SUN_STANDARD
 
@@ -204,12 +204,12 @@ PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 13, GenuineIntel
 
 OS:
  Windows 11 , 64 bit Build 22621 (10.0.22621.2070)
-OS uptime: 20 days 16:44 hours
+OS uptime: 21 days 1:39 hours
 
 CPU: total 8 (initial active 8) (8 cores per cpu, 1 threads per core) family 6 model 158 stepping 13 microcode 0xec, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt
 
-Memory: 4k page, system-wide physical 16222M (3606M free)
-TotalPageFile size 46545M (AvailPageFile size 101M)
+Memory: 4k page, system-wide physical 16222M (3473M free)
+TotalPageFile size 46545M (AvailPageFile size 243M)
 current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
 current process commit charge ("private bytes"): 60M, peak: 314M
 

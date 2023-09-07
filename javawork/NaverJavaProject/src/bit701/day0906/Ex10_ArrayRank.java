@@ -6,6 +6,8 @@ public class Ex10_ArrayRank {
 		//점수로 등수구하기
 		//동점일 경우 동순위 부여
 		int []score= {89,96,100,77,100,80};
+		
+		
 		int []rank=new int[6];
 		
 		//다중for문으로 등수 구하기
