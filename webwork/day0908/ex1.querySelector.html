@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family:'Jua';
+        }
+    </style>
+
+</head>
+<body>
+    <div class="boxa">
+        <h3 class="titlea">Have a good day!!</h3>
+        <h3 class="titleb">오늘은 즐거운 금요일입니다</h3>
+        <h3 class="titlec">태그 클래스 요소값 접근하기 연습</h3>
+    </div>
+    <hr><hr>
+    <div class="boxb">
+        <h3 class="titlea">Have a good day!!</h3>
+        <h3 class="titleb">오늘은 즐거운 금요일입니다</h3>
+        <h3 class="titlec">태그 클래스 요소값 접근하기 연습</h3>
+    </div>
+
+    <script>
+
+        //div.boxa>h3.titlea
+        document.querySelector("div.boxa>h3.titlea").style.color="red";
+
+        //h3중에 클래스명이titlea인 요소의 배경색 변경
+        //querySelector:선택자 갯수가 여러개일경우 첫번째값만 얻는다 그래서 boxb의 titlea는 안보인모습
+        document.querySelector("h3.titlea").style.backgroundColor="pink";
+
+        //querySelectorAll:선택자 갯수가 여러개일경우 배열 타입으로 전부 얻는다
+        let tag1=document.querySelectorAll("h3.titleb");
+
+        for(let i=0;i<tag1.length;i++)
+        {
+            tag1[i].style.color="blue";
+        }
+        //for문의 다른형태로 배경색도 바꿔보자 이때 of는 자바에서 :과 동일하다
+        for(let s of tag1)
+        {
+            s.style.backgroundColor="yellow";
+        }
+
+        //in 은 index만 얻는것
+        /*for(let idx in tag1)//01
+        {
+            tag1[idx].style.border="2px solid magenta";
+        }*/
+
+        //스타일시트를 바꿀 뿐만 아니라 이벤트 출력
+        document.querySelector("div.boxa>h3.titlec").onmouseover=function(){
+            this.style.backgroundColor="orange";
+            
+        }
+        //마우스를 벗어나면 다시 배경을 흰색으로 변경
+        document.querySelector("div.boxa>h3.titlec").onmouseout=function(){
+            this.style.backgroundColor="white";
+        }
+
+    </script>
+    <h4>간단한문제</h4>
+    <div class="food_photo">
+        <div>
+            <img src="../음식사진/11.jpg" class="photo">
+            <br><b class="title">망고빙수</b>
+        </div>
+        <div>
+            <img src="../음식사진/1.jpg" class="photo">
+            <br><b class="title">샌드위치</b>
+        </div>
+        <div>
+            <img src="../음식사진/4.jpg" class="photo">
+            <br><b class="title">카레라이스</b>
+        </div>
+    </div>
+
+    <script>
+        //1번 모든 사진의 너비를 200px로 변경
+        let photo_array=document.querySelectorAll("div.food_photo>div>img.photo");
+
+        for(let i=0;i<photo_array.length;i++)
+        {
+            photo_array[i].style.width="200px";
+
+        }
+
+       /* for(let photo of photo_array)
+        {
+            photo.style.width="200px";
+        }*/
+        //b.title중 첫번째의 글자색을 'red',배경색을'gray'로 변경
+        document.querySelector("div.food_photo>div>b.title").style.color="red";
+        document.querySelector("div.food_photo>div>b.title").style.backgroundColor="grey";
+        
+        
+
+
+        //사진에 마우스를 올리면 border-radius 100px로 변경 하고 다시 벗어나면 0으로 변경
+
+        for(let photo of photo_array)
+        {
+            //변경전 현재사진 저장
+            let prev_photo;
+            photo.onmouseover=function(){
+                this.style.borderRadius="100px";
+
+                //변경전 사진 저장
+                prev_photo=this.getAttribute("src");
+
+                //동물사진으로 변경
+                this.setAttribute("src","../이쁜동물이미지/C1.png");
+            }
+            photo.onmouseout=function(){
+                this.style.borderRadius="0px";
+                //원래사진으로 변경
+                this.setAttribute("src",prev_photo);
+                
+            }
+        }
+    </script>
+
+    <br>
+
+</body>
+</html>
