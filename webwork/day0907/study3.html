@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let com,user;
+
+        window.onload=function(){
+            com=new Array(3);
+            user=new Array(3);
+            let txtsu=document.getElementById("txtsu");
+
+            document.getElementById("btnrandom").onclick=function(){
+                for(let i=0;i<3;i++)
+                {
+                    com[i]=parseInt(Math.random()*9)+1;
+                    for(let j=0;j<i;j++)
+                    {
+                        if(com[i]==com[j])
+                        {
+                            i--;
+                            break;
+                        }
+                    }
+                }
+        
+            alert("새로운 난수 발생"+com);
+            
+        }
+
+        document.getElementById("btnok").onclick=function(){
+            let su=Number(txtsu.value);
+            user[0]=parseInt(su/100);
+            user[1]=parseInt((su%100)/10);
+            user[2]=parseInt(su%10);
+
+            let strike=0,ball=0;
+            for(let i=0;i<3;i++)
+            {
+                for(let j=0;j<3;j++)
+                {
+                    if(com[i]==user[j])
+                    {
+                        if(i==j)
+                        {
+                            strike++;
+                        }
+                        else{
+                            ball++;
+                        }
+                    }
+                }
+            }
+            msg.innerHTML+=`<h3>${su}>> <b style="color:red">${strike}스트라이크${ball}볼</b></h3>`;
+            if(strike==3)
+            {
+                msg.innerHTML+=`<h2>축하합니다 정답입니다</h2>`;
+            }
+            txtsu.value="";
+            txtsu.focus();
+        }
+
+        txtsu.onkeyup=function(e){
+            if(e.keyCode==13)
+            {
+                if(isNaN(this.value)){
+                    alert("숫자로 입력");
+                    this.value="";
+                    this.focus();
+                    return;
+                }
+                document.getElementById("btnok").click();
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div>
+        <button type="button" id="btnrandom">새로운 난수 발생</button>
+        <br><br>
+        <input type="text" id="txtsu" style="width: 100px;" autofocus>
+
+        <button type="button" id="btnok">확인</button>
+        <br><br>
+        <div id="msg"></div>
+    </div>
+   
+</body>
+</html>
