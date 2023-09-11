@@ -25,6 +25,7 @@ public class Ex3_VarArg {
 		// TODO Auto-generated method stub
 		int s1=sum(4,6,8);
 		System.out.println("총합="+s1);
+		System.out.println();
 		
 		int s2=sum(10,20,30,40,50);
 		System.out.println("총합="+s2);

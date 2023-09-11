@@ -29,7 +29,7 @@ public class Ex9_SawonInput {
 		}
 		
 		//출력
-		System.out.println("이름\t기본급\t수당\t가족수\t가족수당\t가족수당세금\t실수령액");
+		System.out.println("이름\t기본급\t수당\t가족수\t가족수당 가족수당세금\t실수령액");
 		System.out.println("=".repeat(30));
 		
 		for(Sawon s:sa)

@@ -13,9 +13,9 @@ public class Ex7_Constructor {
 		
 		Student []stu= {
 				new Student(),
-				new Student("유재석"),
-				new Student("이효리",1989,89),
-				new Student("캔디",1979,100)
+				new Student("강호동"),
+				new Student("홍길동",1989,90)
+				
 		};
 		
 		/*for(int i=0;i<stu.length;i++)

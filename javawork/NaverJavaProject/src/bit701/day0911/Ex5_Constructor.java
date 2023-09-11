@@ -16,6 +16,11 @@ class Car2
 	{
 		return new Car2();
 	}
+	
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
