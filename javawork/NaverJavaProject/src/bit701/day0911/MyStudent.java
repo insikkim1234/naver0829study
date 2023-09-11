@@ -3,6 +3,8 @@ package bit701.day0911;
 public class MyStudent {
 	private String name;
 	private int kor,eng;
+	
+	//setter getter
 	public void setName(String name)
 	{
 		this.name=name;

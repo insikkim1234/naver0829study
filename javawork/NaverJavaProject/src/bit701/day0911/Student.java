@@ -11,16 +11,19 @@ class Student
 		
 		Student()
 		{
-			name="이효리";
+			/*name="이효리";
 			birthYear=2000;
-			score=50;
+			score=50;*/
+			this("이효리",2000,50);
+			
 		}
 		
 		Student(String name)
 		{
-			this.name=name;
+			/*this.name=name;
 			birthYear=2000;
-			score=50;
+			score=50;*/
+			this(name,2000,50);
 		}
 		
 		Student(String name, int birthYear,int score)
@@ -28,6 +31,7 @@ class Student
 			this.name=name;
 			this.birthYear=birthYear;
 			this.score=score;
+			
 		}
 		
 		public void studentInfo()
