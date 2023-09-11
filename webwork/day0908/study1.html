@@ -6,6 +6,61 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="boxa">
+        <h3 class="titlea">have a good day</h3>
+        <h3 class="titleb">오늘은 즐거운 금요일</h3>
+        <h3 class="titlec">태그 클래스 요소값 접근 연습</h3>
+    </div>
+    <br><br>
+    <div class="boxb">
+        <h3 class="titlea">have a good day</h3>
+        <h3 class="titleb">오늘은 즐거운 금요일</h3>
+        <h3 class="titlec">태그 클래스 요소값 접근 연습</h3>
+    </div>
+    <script>
+        document.querySelector("div.boxa>h3.titlea").style.color="red";
+        document.querySelector("h3.titlea").style.backgroundColor="pink";
+
+        let tag1=document.querySelectorAll("h3.titleb");
+
+        for(let i=0;i<tag1.length;i++)
+        {
+            tag1[i].style.color="blue";
+        }
+
+        for(let s of tag1)
+        {
+            s.style.backgroundColor="yellow"
+        }
+
+        document.querySelector("div.boxa>h3.titlec").onmouseover=function(){
+            this.style.backgroundColor="orange";
+        }
+
+        document.querySelector("div.boxa>h3.titlec").onmouseout=function(){
+            this.style.backgroundColor="white";
+        }
+
+    </script>
+    <h4>간단한문제</h4>
+    <div class="food_photo">
+        <div>
+            <img src="../음식사진/11.jpg" class="photo">
+            <br><b class="title">망고빙수</b>
+        </div>
+        <div>
+            <img src="../음식사진/1.jpg" class="photo">
+            <br><b class="title">샌드위치</b>
+        </div>
+        <div>
+            <img src="../음식사진/4.jpg" class="photo">
+            <br><b class="title">카레라이스</b>
+        </div>
+    </div>
+
+    <script>
+        let photo_array=document.querySelectorAll("div.food_photo>div>img.photo");
+    </script>
+
 </body>
 </html>
