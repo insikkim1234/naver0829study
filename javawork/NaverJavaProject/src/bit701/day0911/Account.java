@@ -40,5 +40,19 @@ public class Account {
 	{
 		System.out.println(accountNo+"\t"+accountName+"\t"+money);
 	}
+	
+	//getter method 자동생성
+	public String getAccountNo() {
+		return accountNo;
+	}
+	public String getAccountName() {
+		return accountName;
+	}
+	public int getMoney() {
+		return money;
+	}
+	
+	
+	
 
 }
