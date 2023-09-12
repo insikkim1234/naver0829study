@@ -1,5 +1,7 @@
 package bit701.day0912;
 
+import java.util.StringTokenizer;
+
 public class Ex4_Split {
 
 	public static void main(String[] args) {
@@ -29,6 +31,22 @@ public class Ex4_Split {
 		for(int i=0;i<str3Array.length;i++)
 		{
 			System.out.println(i+":"+str3Array[i]);
+		}
+		
+		//자바의 클래스 이용해서 분리하기
+		StringTokenizer st=new StringTokenizer(str1,",");
+		System.out.println("총 "+st.countTokens()+"개로분리");
+		while(st.hasMoreTokens())//다음 분리할 토큰이 있으면 true없으면 false
+		{
+			System.out.println(st.nextToken());
+		}
+		
+		StringTokenizer st2=new StringTokenizer(str1,",");
+		System.out.println("-".repeat(30));
+		int count= st2.countTokens();
+		for(int i=0;i<count;i++)
+		{
+			System.out.println(st2.nextToken());
 		}
 
 	}

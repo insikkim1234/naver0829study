@@ -31,7 +31,8 @@ public class Ex2_FileReader {
 			}
 			
 			
-		} catch (FileNotFoundException e) {
+		} 
+		catch (FileNotFoundException e) {
 			//해당 파일이 없을 경우 예외가 발생하며 캐치영역이 실행된다
 			System.out.println("해당 파일을 찾을수 없어요"+e.getMessage());
 		}//파일리더 친후 트라이캣치
