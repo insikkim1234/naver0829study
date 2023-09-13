@@ -42,7 +42,7 @@ public class Ex4_Split {
 		}
 		
 		StringTokenizer st2=new StringTokenizer(str1,",");
-		System.out.println("-".repeat(30));
+		
 		int count= st2.countTokens();
 		for(int i=0;i<count;i++)
 		{

@@ -28,8 +28,9 @@ public class Ex7_InheriOverride {
 		// TODO Auto-generated method stub
 		SubB sub1=new SubB();
 		sub1.processA();
+		System.out.println("-".repeat(30));
 		sub1.processB();
-		
+		System.out.println("-".repeat(30));
 		//다형성
 		//선언은 부모클래스로 생성은 자식클래스로
 		SuperB sub2=new SubB();

@@ -11,6 +11,16 @@
     <fullyQualifiedTypeName name="bit701.day0911.MyStudent"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="bit701.day0911.Car2"/>
+    <fullyQualifiedTypeName name="bit701.day0912.Ex3_FileBankRead"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="bit701.day0911.Account"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="bit701.day0912.sungjuk"/>
+    <fullyQualifiedTypeName name="bit701.day0912.Ex5_FileReader"/>
+    <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+    <fullyQualifiedTypeName name="Study.Sungjuk"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>
