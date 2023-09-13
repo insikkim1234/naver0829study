@@ -1,18 +1,14 @@
-package bit701.day0913;
+package Study;
 
 interface RemoteControl
 {
-	//상수
 	int MAX_VOLUME=10;
 	int MIN_VOLUME=0;
 	
-	//추상 메서드
 	void turnOn();
 	void turnOff();
 	void setVolume(int volume);
 	
-	//jdk8에서 추가된 기능
-	//디폴트 인스턴스 매서드(defalut붙여서 인터페이스 안에서 함수 ㅓㅈㅇ의
 	default void setMute(boolean mute)
 	{
 		if(mute)
@@ -22,11 +18,9 @@ interface RemoteControl
 		}
 		else
 		{
-			System.out.println("무음 해제");
+			System.out.println();
 		}
 	}
-	
-	
 }
 
 class Television implements RemoteControl
@@ -36,13 +30,13 @@ class Television implements RemoteControl
 	@Override
 	public void turnOn() {
 		// TODO Auto-generated method stub
-		System.out.println("TV를 켭니다");
+		System.out.println("tv를 켭니다");
 	}
 
 	@Override
 	public void turnOff() {
 		// TODO Auto-generated method stub
-		System.out.println("TV를 끕니다");
+		System.out.println("tv를 끕니다");
 	}
 
 	@Override
@@ -60,10 +54,9 @@ class Television implements RemoteControl
 		{
 			this.volume=volume;
 		}
-		System.out.println("현재 볼륨은 "+this.volume+"입니다");
+		System.out.println("현재 볼륨음"+this.volume+"입니다");
 		
 	}
-	
 	
 }
 
@@ -77,15 +70,8 @@ public class Book348 {
 		rc.turnOff();
 		rc.setVolume(5);
 		
-		//디폴트 메서드 호출
 		rc.setMute(false);
 		rc.setMute(true);
-		
-		
-		/*에러 나오는 부분
-		RemoteControl rc2=null;//인터페이스라 생성할수 없다
-		rc2.setMute(false);//반드시 구현하는 클래스가 있어야만 호출이 가능하다*/
-		
 
 	}
 

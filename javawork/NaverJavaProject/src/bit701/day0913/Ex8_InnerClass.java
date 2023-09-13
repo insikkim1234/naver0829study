@@ -16,14 +16,14 @@ class OuterA
 		{
 			System.out.println("내부 클래스의 매서드");
 			System.out.println("외부의 변수a="+a);
-			System.out.println("외부의 변수b="+b);
-			System.out.println("외부의 변수c="+c);
-			System.out.println("외부의 변수d="+d);
+			System.out.println("외부의 스태틱변수b="+b);
+			System.out.println("내부의 변수c="+c);
+			System.out.println("내부의 스태틱변수d="+d);
 		}
 
 
 	}
-	
+	//스태틱 내부클래스
 	static class InnerB{
 		int e=50;
 		static int f=60;
@@ -31,9 +31,9 @@ class OuterA
 		{
 			System.out.println("스태틱 내부 클래스의 매서드");
 			//System.out.println("외부a="+a);오류 외부에 있는 일반 인스턴스 변수는 접근 불가
-			System.out.println("외부b="+b);
+			System.out.println("스태틱 외부b="+b);
 			System.out.println("내부e="+e);
-			System.out.println("내부 f="+f);
+			System.out.println("스태틱 내부 f="+f);
 			
 		}
 		

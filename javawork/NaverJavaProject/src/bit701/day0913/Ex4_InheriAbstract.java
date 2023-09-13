@@ -33,9 +33,10 @@ public class Ex4_InheriAbstract {
 
 	public static void main(String[] args) {
 		//AbstEx1 ex1=new AbstEx1();//오류발생함 왜냐면 abstrat클래스는 객체생성 불가
-//		AbstEx1 ex1=new AbstEx2();
-//		System.out.println("a="+ex1.getA());
-//		System.out.println("a="+ex1.getStr());//show 메서드 추가했더니 오류 발생
+		//AbstEx1 ex1=new AbstEx2();
+		//System.out.println("a="+ex1.getA());
+		//System.out.println("a="+ex1.getStr());
+		//show 메서드 추가했더니 오류 발생
 		
 		AbstEx3 ex3=new AbstEx3();
 		System.out.println("a="+ex3.getA());
