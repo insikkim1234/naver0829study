@@ -2,20 +2,22 @@ package bit701.day0914;
 
 
 //T는 T가 타입 파라미터임을 뜻하는 기호로, 타입이 필요한 자리에 T를 사용하면 된다
-//T에 대체되는 타입은 클래스 타입이나(string) 인터페이스만 가능하다 왜냐면 
+
 class GenericsType<T>
 {
+	//선언
 	T[] v;
+	
 	public void set(T[] n)
 	{
 		v=n;
 	}
-	
+	//출력
 	public void print()
 	{
 		for(T s:v)
 		{
-			System.out.println(s+" ");
+			System.out.print(s+" ");
 		}
 		System.out.println();
 	}
@@ -36,10 +38,13 @@ public class Ex5_Generics {
 		t1.print();
 		
 		System.out.println("-".repeat(30));
-		//GenericsType<int> t2=new GenericsType(); t자리에는 클래스 타입만 가능하다 따라서 int는 안되고 integer만 가능
-		GenericsType<Integer> t2=new GenericsType();
+		//GenericsType<int> t2=new GenericsType(); 
+		//t자리에는 클래스 타입만 가능하다 따라서 int는 안되고 integer만 가능
 		
 		Integer []narr= {5,7,10,30,100};
+		GenericsType<Integer> t2=new GenericsType();
+		
+		
 		t2.set(narr);
 		t2.print();
 	}

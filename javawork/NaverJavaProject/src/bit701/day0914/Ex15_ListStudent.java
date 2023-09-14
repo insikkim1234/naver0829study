@@ -8,9 +8,10 @@ import bit701.day0911.MyStudent;
 
 public class Ex15_ListStudent {
 	
+	//어레이리스트 생성 기본 입출력 선언
 	List<Student> list=new ArrayList<Student>();
 	Scanner sc=new Scanner(System.in);
-	
+	//생성자로 Ex15_ListStudent에 이름 점수 혈액형 점수 받기마지막에는 리스트사이즈로 몇갠지 받기
 	public Ex15_ListStudent()
 	{
 		list.add(new Student("이효리", 90, "ab"));
@@ -22,7 +23,11 @@ public class Ex15_ListStudent {
 		
 	}
 	
-	//메뉴를 만들어서 번호를 리턴
+	//메뉴를 만들어서 
+	//\n1.학생추가  2.학생삭제 3.학생검색 4.전체출력 5.종료  옵션 입력
+	//하여 num에 저장
+	//12345가 아닌 다른 모든 걸 받으면 트라이캣치 문으로 
+	//캣치 시 num에 4 저장하고 리턴
 	public int getMenu()
 	{
 		int num=0;
@@ -39,6 +44,13 @@ public class Ex15_ListStudent {
 		return num;
 	}
 	
+	
+	//학생 정보 추가시 함수 학생명name 점수score 입력받고 저장
+	//트라이 문으로 스코어를 받고
+	//캣치 문으로 점수가 잘못 입력되면 30점으로 초기화
+	//혈액형 받아 블러드에 저장
+	//student 객체 받아 세터 함수로 저장
+	//리스트에 저장 하고 리스트사이즈 출력
 	public void addStudent()
 	{
 		System.out.println("학생 정보를 추가합니다");
@@ -67,7 +79,13 @@ public class Ex15_ListStudent {
 		list.add(s);
 		System.out.println(list.size()+"번째 학생정보 추가됨");
 	}
-	
+	//학생 정보 삭제 삭제할 학생의 이름은?입력받고name에 저장
+	//boolean 변수 find 를 false로 초기화
+	//저장된리스트 사이즈 만큼 반복하는 반복문
+	//s에 저장하고 s의 이름이 name과 같으면
+	//true로 부울변수 바꾸고 remove 로 제거하고 반복문 탈출
+	//변수가 true면 삭제되었습니다
+	//아니면 명단에 없습니다 출력
 	public void deleteStudent()
 	{
 		System.out.println("학생 정보를 삭제합니다");
@@ -89,6 +107,7 @@ public class Ex15_ListStudent {
 		else
 			System.out.println(name+"님은 명단에 없습니다");
 	}
+	
 	
 	public void searchStudent()
 	{

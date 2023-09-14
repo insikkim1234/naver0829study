@@ -13,12 +13,16 @@ public class Ex9_SetLotto {
 		System.out.println("로또를 구입할 금액");
 		try
 		{
+			//기본 입출력으로 구입한 금액 입력받기
 			money=Integer.parseInt(sc.nextLine());
+			
+			//로또는 1회시행에 1000원이므로 이것보다 작으면
+			//금액이 부족하다고 끝냄
 			if(money<1000) {
 				System.out.println("금액이 부족합니다");
 				return;}
 			
-			//입력받은 금액별로돌릴 횟수 구하기
+			//for문이용 입력받은 금액별로돌릴 횟수 구하기
 			for(int i=1;i<money/1000;i++)
 			{
 				//컬랙션 setLotto구하고 오름차순으로 정렬할것임

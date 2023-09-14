@@ -17,6 +17,12 @@ public class Ex11_Map {
 		map.put("ipsday","1989-12-12");
 		map.put("hp","010-2222-4444");
 		
+		System.out.println(map.get("name"));//키 입력하면 값알려줌
+		System.out.println(map.get("kor"));
+		map.remove("blood");//키 값 제거
+		System.out.println(map.get("blood"));//없는것
+		System.out.println(map.get("addr"));//지운것 찍으면 null
+		
 		//key값을 얻은 후 key에 해당하는 value 알아보자 keyset이용
 		//set 컨스
 		Set<String> keys=map.keySet();
