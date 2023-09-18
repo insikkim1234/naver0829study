@@ -2,6 +2,8 @@ package bit701.day0915;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -44,16 +46,41 @@ public class Ex5_ArrayButton extends JFrame{
 			}
 		});
 	}
+	
+	//배열 버튼 이벤트ㅡㄹ 위한 내부클래스
+	//액션리스너에 컨스페
+	//mybutton 누르고 컨1
+	class MyButton implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for(int i=0;i<btn.length;i++)
+			{
+				if(e.getSource()==btn[i])
+				{
+					Ex5_ArrayButton.this.getContentPane().setBackground(buttonColor[i]);
+				}
+			}
+			
+		}
+		
+	}
 
 	private void setDesign() {
 		// TODO Auto-generated method stub
 		//레이아웃 변경
-		this.setLayout(new FlowLayout());//순서대로 나열
+		//순서대로 나열(flowlayout에 컨스페)
+		this.setLayout(new FlowLayout());
+		//for문으로 버튼을 갯수만큼 생성하여 이름 배경색 주고 버튼 추가하기
 		for(int i=0;i<btn.length;i++)
 		{
 			btn[i]=new JButton(buttonTitle[i]);
 			btn[i].setBackground(buttonColor[i]);
 			this.add(btn[i]);
+			
+			//버튼 이벤트 발생
+			btn[i].addActionListener(new MyButton());
 		}
 		
 	}

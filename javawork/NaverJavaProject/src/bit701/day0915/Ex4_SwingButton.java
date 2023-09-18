@@ -10,13 +10,32 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class Ex4_SwingButton extends JFrame implements ActionListener{
+	//버튼 세개를 생성하므로 3개 만들어놓자
 	JButton btn1,btn2,btn3;
+	
+	//버튼 이벤트를 이번에는 내부클래스로 만들어보자
+		class MyColorButton implements ActionListener
+		{
+			//mycolorbutton 오버라이드 actionperformed
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(e.getSource()==btn1)
+					Ex4_SwingButton.this.getContentPane().setBackground(Color.orange);
+				else
+					Ex4_SwingButton.this.getContentPane().setBackground(Color.magenta);
+				
+			}
+		}
 	
 	public  Ex4_SwingButton(String title)
 	{
+		//제이프레임의 타이틀 생성
 		super(title);
-		this.setLocation(300, 100);//프레임의 시작위치를 잡겠다
-		this.setSize(300, 300);//프레임의 너비 높이
+		//프레임의 시작위치를 잡겠다
+		this.setLocation(300, 100);
+		//프레임의 너비 높이
+		this.setSize(300, 300);
 		
 		//this.getContentPane().setBackground(Color.GREEN);//color상수 이용 변경
 		this.getContentPane().setBackground(new Color(200,255,180));//rgb값 이용 변경
@@ -42,38 +61,27 @@ public class Ex4_SwingButton extends JFrame implements ActionListener{
 			}
 		});
 	}
-	//버튼 이벤트를 이번에는 내부클래스로 만들어보자
-	class MyColorButton implements ActionListener
-	{
-		//mycolorbutton 오버라이드 actionperformed
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			if(e.getSource()==btn1)
-				Ex4_SwingButton.this.getContentPane().setBackground(Color.orange);
-			else
-				Ex4_SwingButton.this.getContentPane().setBackground(Color.magenta);
-			
-		}
-	}
+	
+	
+	//
 	private void setDesign() {
 		// TODO Auto-generated method stub
 		//자바에서 제공하는 레이아웃을 안쓰고 
 		this.setLayout(null);
 		//직접 위치지정을 할 경우
-		//btn1생성
+		//btn1생성후 이벤트호출
 		btn1=new JButton("오렌지색");
 		btn1.setBounds(20, 50, 100, 50);//x y width height
 		this.add(btn1);
+		btn1.addActionListener(new MyColorButton());
 		
-		//btn2생성
+		//btn2생성후 이벤트 호출
 		btn2=new JButton("핑크색");
 		btn2.setBounds(130, 50, 100, 50);//x y width height
 		this.add(btn2);
-		
-		//button 1,2는 내부 클래스  MyColorButton 의 이벤트를 호출해보자
-		btn1.addActionListener(new MyColorButton());
 		btn2.addActionListener(new MyColorButton());
+		
+		
 		
 		//btn3생성
 		btn3=new JButton("버튼글자 배경색변경");
@@ -81,13 +89,14 @@ public class Ex4_SwingButton extends JFrame implements ActionListener{
 		this.add(btn3);
 		
 		//btn3은 익명내부클래스 형태로만들어보자
+		//세번째 버튼을 누르면 첫번째 두번째 세번째 버튼의 버튼색,글짜색 바꿔주는 코드
 		btn3.addActionListener(new ActionListener() {//Ac치고 컨스페
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				btn1.setBackground(Color.GREEN);
-				btn1.setForeground(Color.red);
+				btn1.setBackground(Color.GREEN);//버튼 색깔
+				btn1.setForeground(Color.red);//버튼 글짜색갈
 				
 				btn2.setBackground(Color.pink);
 				btn2.setForeground(Color.blue);
