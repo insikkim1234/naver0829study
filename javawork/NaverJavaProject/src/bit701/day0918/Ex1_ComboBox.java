@@ -15,9 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class Ex1_ComboBox extends JFrame{
-
-	JPanel p=new JPanel();
+public class Ex1_ComboBox/*요뒤에 복붙 */ extends JFrame{
+	//4개 다 컨스페로 입력받기
+	JPanel p=new JPanel();//제이패널 컨스페
 	JComboBox<String> combo;//콤보박스 생성시 입력
 	JRadioButton rbYellow,rbMagenta,rbGray,rbBlue;
 	JLabel lblMessage;
@@ -32,6 +32,7 @@ public class Ex1_ComboBox extends JFrame{
 	}
 	//셋디자인 만들어놓고 컨스페로 함수 만들기
 	private void setDesign() {
+		//벡터 컨스페
 		Vector<String> list=new Vector<String>();
 		list.add("빨강");
 		list.add("초록");
@@ -43,6 +44,7 @@ public class Ex1_ComboBox extends JFrame{
 
 		//상단에 추가
 		//this.add("North",combo);//상단 전체에 추가
+		//제이페널 컨스페
 		JPanel pTop=new JPanel();
 		pTop.add(combo);
 		this.add("North",pTop);
@@ -51,6 +53,7 @@ public class Ex1_ComboBox extends JFrame{
 		lblMessage=new JLabel("Have a dniceday");
 		//글자크기 글꼴 조절
 		lblMessage.setFont(new Font("Comic sans MS",Font.BOLD,30));
+		//패널에 메시지 추가
 		p.add(lblMessage);
 
 		//center에는 jpannal p추가( 색바꿈)
@@ -58,6 +61,7 @@ public class Ex1_ComboBox extends JFrame{
 		this.add("Center",p);
 
 		//ㅂ콤보박스 이벤트
+		//additem에서 컨스페
 		//new it에서 컨스페
 		combo.addItemListener(new ItemListener() {
 
@@ -89,6 +93,7 @@ public class Ex1_ComboBox extends JFrame{
 		});
 
 		//하단에 4개의 라디오버튼 추가
+		//버튼그룹 컨스페
 		ButtonGroup bg=new ButtonGroup();
 		rbYellow=new JRadioButton("노랑");
 		rbBlue=new JRadioButton("파랑");
