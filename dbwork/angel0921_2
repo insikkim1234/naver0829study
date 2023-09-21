@@ -1,0 +1,409 @@
+--pl sql이란
+sql언어에 절차적 언어요소를 추가해서 프로그래밍한것
+--예제1
+declare
+    --변수 선언한는 영역
+    v_no number(4,1);--4자리에 소숫점이하 1자리 값을 넣는 변수 선언
+begin
+    --sql 구문이나 pl sql구문으로 코딩하는 영역
+    v_no:=12.7;
+    DBMS_Output.put_line(v_no);--출력문
+end;
+/
+
+----------------------------2----------------
+declare
+    vname varchar2(20);
+    vban varchar2(20);
+begin
+   select name,ban into vname,vban
+   from student
+   where num=1;
+   
+   
+    DBMS_Output.put_line(vname||'님은 '||vban||'입니다');
+end;
+/
+-------------------------------------------
+--person과 food 테이블을 조인하여 person_num이 9인 사람의 이름 주문한메뉴 가격 출력
+declare
+    vname varchar2(20);
+    vfood varchar2(20);
+    vprice number(7);
+   
+begin
+   select person_name,fname,fprice
+   into vname,vfood,vprice
+   from food f,person p
+   where f.food_num=p.food_num and person_num=14;
+   
+    DBMS_Output.put_line('주문자:'||vname);
+    DBMS_Output.put_line('메뉴명:'||vfood);
+    DBMS_Output.put_line('가격:'||vprice||'원');
+end;
+/
+DECLARE
+   vname varchar2(20);
+   vfood varchar2(20);
+   vprice number(7);
+BEGIN
+  select person_name,fname,fprice
+  into vname,vfood,vprice
+  from food f,person p
+  where f.food_num=p.food_num and person_num=14;
+  
+   DBMS_Output.put_line('주문자:'||vname);
+   DBMS_Output.put_line('메뉴명:'||vfood);
+   DBMS_Output.put_line('가  격:'||vprice||'원');   
+end;
+/
+----------------------
+--예제4 상품명을 변수에 지정한 후 해당 상품명의 가격 색상 출력
+create SEQUENCE seq_shop
+start with 10
+increment by 10
+nocache;--10 20 30 40
+create table shop (
+    sang_no number(5) constraint shop_pk_no primary key,
+    sang_name varchar2(100),
+    sang_price number(7),
+    sang_color varchar2(20)
+    );
+insert into shop
+values(seq_shop.nextval,'블라우스',23000,'yellow');
+
+insert into shop
+values(seq_shop.nextval,'청바지',45000,'black');
+insert into shop
+values(seq_shop.nextval,'브이넥티',11000,'white');
+insert into shop
+values(seq_shop.nextval,'브이넥티',23000,'red');
+insert into shop
+values(seq_shop.nextval,'체크자켓',130000,'gray');
+commit;
+
+declare
+    vsangpum varchar2(20) :='청바지';
+    vcolor varchar2(20);
+    vprice number(7);
+    vprice2 varchar2(20);
+   
+begin
+   select sang_price,sang_color,ltrim(to_char(sang_price,'L999,999'))
+   into vprice,vcolor,vprice2
+   from shop
+   where sang_name=vsangpum;
+   
+    DBMS_Output.put_line('상품명:'||vsangpum);
+    DBMS_Output.put_line('색상:'||vcolor);
+    DBMS_Output.put_line('단가:'||vprice);
+    DBMS_Output.put_line('단가:'||vprice2);
+end;
+/
+----------------------------------------------------------------------
+/*if조건식 then
+    문장1;
+   else
+   문장2;
+ end if;  
+   
+   
+if 조건식1 then 문장1;
+elsif 조건2 then 문장2;
+
+end if;
+
+end if;*/
+
+--예제5 년도에 맞는 띠구하기
+
+--키보드로 연도 입력받고자 할 경우
+accept year   prompt '태어난 년도를 입력하세요';
+
+declare
+    --v_year number(4) :=1989;
+    v_year number(4) := '&year';--입력한값을 대입
+    v_mod number(2) :=mod(v_year,12);
+    v_ddi varchar2(10);--띠 저장할 변수
+   
+begin
+   if v_mod=0 then v_ddi:='원숭이';
+   elsif  v_mod=1 then v_ddi:='닭';
+   elsif  v_mod=2 then v_ddi:='개';
+   elsif  v_mod=3 then v_ddi:='돼지';
+   elsif  v_mod=4 then v_ddi:='쥐';
+   elsif  v_mod=5 then v_ddi:='소';
+   elsif  v_mod=6 then v_ddi:='호랑이';
+   elsif  v_mod=7 then v_ddi:='토끼';
+   elsif  v_mod=8 then v_ddi:='용';
+   elsif  v_mod=9 then v_ddi:='뱀';
+   elsif  v_mod=10 then v_ddi:='말';
+   elsif  v_mod=11 then v_ddi:='양';
+   end if;
+   
+   
+    DBMS_Output.put_line(v_year||'연생은'||v_ddi||'띠입니다');
+end;
+/
+-----------------------------------------------------------------
+--db컬럼의 타입을 가져오는 방법
+accept iname prompt 'sangpum?';
+declare
+    v_name student.name%type :='&iname';--student테이블의 네임 어트리뷰트의 타입을 가져옴
+    v_height student.height%type;
+    v_java student.java%type;
+    v_spring student.spring%type;
+   
+begin
+   select height,java,spring
+   into v_height,v_java,v_spring
+   from student
+   where name=v_name;
+   
+    DBMS_Output.put_line('학생명:'||v_name);
+    DBMS_Output.put_line('키:'||v_height);
+    DBMS_Output.put_line('자바점수:'||v_java);
+    DBMS_Output.put_line('스프링점수:'||v_spring);
+    DBMS_Output.put_line('총점:'||(v_java+v_spring));
+    
+    
+end;
+/
+
+-----------------------------------------------------------------
+/*
+반복문 :loop
+loop
+    문장들;
+    exit when 조건;
+end loop; 
+*/
+
+----1부터10까지 반복출력
+declare
+    v_no number(2) :=0;
+   
+begin
+   loop
+    v_no := v_no+1;
+    DBMS_Output.put_line('no='||v_no);
+    exit when v_no=10;--10일경우 반복문 탈출
+   
+   end loop;
+   
+    
+end;
+/
+
+-------------------------------------------------------------
+--구구단 단을 입력하면 해당 단을 출력
+
+accept dan prompt 'dan?';
+DECLARE
+   v_dan number(2) := '&dan';
+   v_idx number(1) := 1;
+BEGIN    
+   DBMS_Output.put_line('** '||v_dan||' 단 **');
+   loop       
+       DBMS_Output.put_line(v_dan || 'X' || v_idx || '=' || v_dan*v_idx);
+       v_idx := v_idx+1;
+       exit when v_idx=10;
+   end loop;
+end;
+/
+----------------------------------------
+
+/*
+    반복문중에 for문 
+    for 변수 in [reverse] 시작값..최종값 loop
+        문장들;
+    end loop;    
+*/
+
+--예제 10 에제 8 구구단 복사후 for문 변경
+accept dan prompt 'dan?';
+DECLARE
+   v_dan number(2) := '&dan';
+   v_idx number(1);
+BEGIN    
+   DBMS_Output.put_line('** '||v_dan||' 단 **');
+   for     v_idx in 1..9 loop 
+       DBMS_Output.put_line(v_dan || 'X' || v_idx || '=' || v_dan*v_idx);
+      end loop; 
+end;
+/
+
+
+--예제9
+accept sangpum prompt 'sangpum?';
+declare
+    vsangpum varchar2(20) :='&sangpum';
+    vcolor varchar2(20);
+    vprice number(7);
+    vprice2 varchar2(20);
+   
+begin
+   select sang_price,sang_color,ltrim(to_char(sang_price,'L999,999'))
+   into vprice,vcolor,vprice2
+   from shop
+   where sang_name=vsangpum;
+   
+    DBMS_Output.put_line('상품명:'||vsangpum);
+    DBMS_Output.put_line('색상:'||vcolor);
+    DBMS_Output.put_line('단가:'||vprice);
+    DBMS_Output.put_line('단가:'||vprice2);
+    
+    --결과가 두개 이상이거나 없으면 오류 발생
+    --오라클에서 예외처리 하는 방법
+    exception 
+        when NO_DATA_FOUND 
+            then DBMS_Output.put_line(vsangpum||'상품은 db에 없습니다');
+        when TOO_MANY_ROWS
+            then DBMS_Output.put_line(vsangpum||'상품이 두개이상 존재합니다');
+        when OTHERS
+            then DBMS_Output.put_line(vsangpum||'상품에 대한 오류발생 뭔지모름');
+end;
+/
+
+
+--레코드 단위로 데이터 가져오기
+declare
+    v_num student.num%type :=1;
+    v_stu angel.student%rowtype;--레코드 단위로 긁어올경우 rowtype 으로 선언
+   
+begin
+   select * 
+   into v_stu
+   from student
+   where num=v_num;
+   
+    DBMS_Output.put_line('이름:' ||v_stu.name);
+    DBMS_Output.put_line('키:' ||v_stu.height);
+    DBMS_Output.put_line('자바:' ||v_stu.java);
+    DBMS_Output.put_line('스프링:' ||v_stu.spring);
+    DBMS_Output.put_line('반:' ||v_stu.ban);
+    
+end;
+/
+-----------------------------------------------------
+--db의 여러 데이터를 조회할경우
+/*cursor sql문을 실행할때마다 명령  분석하고 실행되어 결과를 보관하기 위한 
+특별한 메모리 영역을 사용하는데 이 영역을 참조하는 것이 커서이다
+
+select 문에서 여러 데이터 조회시 사용하는 객체
+
+커서 속성
+sql%rowcount :실행된 갯ㅅ수를 반환
+sql%found 가장 최근의 sql 문이 하나 이상의 행에 영향을 준 경우 true값을 반환
+sql%notfound 결과행이 없는경우
+sql%isopen 항상 false (항상 close를 하기 때문)
+*/
+
+--예제 12
+declare
+    v_sno number(3) := 20;
+    v_shop angel.shop%rowtype;
+   
+begin
+   select *
+   into v_shop
+   from shop 
+   where sang_no=v_sno;
+   
+    DBMS_Output.put_line('상품명:'||v_shop.sang_name);
+    DBMS_Output.put_line('조회된 실행갯수:'||sql%rowcount);--1
+    
+    --student 의 자바 점수 변경
+    update student
+    set java=99;
+    DBMS_Output.put_line('수정된 실행갯수:'||sql%rowcount);--3 student table에서 3개 바뀜
+end;
+/
+--.여러 레코드 조회
+--13
+declare
+    Cursor s1
+    is
+    select *
+    from shop;
+   
+   
+begin
+   
+   
+    DBMS_Output.put_line('상품번호  상품명  색상  가격');
+    DBMS_Output.put_line('------------------------');
+    
+    for s in s1 loop
+        exit when s1%notfound;--더이상 데이터가 없으면 빠져나간다
+        DBMS_Output.put_line(s.sang_no||'   '||s.sang_name||'  '
+            ||s.sang_color||'  '||s.sang_price);
+    end loop;
+end;
+/
+
+--예제 14
+--상품명,색상,가격 입력하면 shop db에 추가하기
+accept isang prompt 'sangpum?';
+accept icolor prompt 'color?';
+accept iprice prompt 'price?';
+declare
+    v_sang shop.sang_name%type := '&isang';
+     v_color shop.sang_color%type := '&icolor';
+    v_price shop.sang_price%type := '&iprice';
+begin
+
+    insert into shop
+    values (seq_shop.nextval,v_sang,v_price,v_color);
+    commit;
+   
+   
+    DBMS_Output.put_line('상품정보를 추가했습니다');
+end;
+/
+
+--문제 :food table
+--
+/* fname fprice no 입력을 받아서
+    no가 1이면 fname,fprice 로 데이터 추가를 하고
+    no가 2이면 전체 food 데이터 출력
+*/
+----------------------------------------------------------------
+accept ino prompt 'no?';
+accept ifname prompt 'fname?';
+accept ifprice prompt 'fprice?';
+declare
+    v_fname food.fname%type := '&ifname';
+    v_fprice food.fprice%type := '&iprice';
+    v_no number(2) := '&ino';
+    
+    Cursor s1
+    is
+    select *
+    from food;
+   
+begin
+    
+    
+    if(v_no=1)
+    then
+    insert into food
+    values (seq_food.nextval,v_fname,v_fprice);
+    commit;
+    DBMS_Output.put_line('상품정보를 추가했습니다');
+    
+    else
+    
+    DBMS_Output.put_line('음식번호 음식명 가격');
+    DBMS_Output.put_line('------------------------');
+    
+    for s in s1 loop
+        exit when s1%notfound;--더이상 데이터가 없으면 빠져나간다
+        DBMS_Output.put_line(s.food_num||'   '||s.fname||'  '
+            ||s.fprice);
+    end loop;
+    
+    
+    end if;
+end;
+/

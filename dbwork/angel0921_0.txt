@@ -1,0 +1,255 @@
+--student의 num을 외부키로 갖는 새로운 테이블 stuinfo만들기
+--외부키는 나중에 설정
+
+create table stuinfo (
+    idx number(5) constraint stuinfo_pk_idx primary key,
+    num number(5),
+    addr varchar2(20),
+    hp varchar2(20)
+    );
+    
+alter table stuinfo
+add constraint stuinfo_fu_num
+            foreign key(num)
+references student(num);
+
+insert into stuinfo
+values (seq_stu.nextval,9,'서울시 강남구','010-2323-4545');
+
+insert into stuinfo
+values (seq_stu.nextval,3,'서울시 강남구','010-2323-4545');
+
+insert into stuinfo
+values (seq_stu.nextval,6,'제주도','010-1234-1234');
+
+insert into stuinfo
+values (seq_stu.nextval,8,'부산','010-1234-1234');
+
+--stuinfo 만 조회
+select *
+from stuinfo;
+
+--student만 조회
+select *
+from student;
+
+--개인정보 등록된 학생에 한해서 모든 정보를 출력해보자(inner join=equi join)
+select stu.name,stu.java,stu.spring, stu.ban,info.addr,info.hp
+from student stu, stuinfo info
+where stu.num=info.num;
+-- 어트리뷰트 명 앞에 무조건 어느 테이블 소속인지 붙였는데 
+-- 양쪽에 같은 컬럼이 없다면 생략해도 된다
+select name,java,spring, ban,addr,hp
+from student stu, stuinfo info
+where stu.num=info.num;--num은 양쪽에 다있으므로 생략 불가능
+
+--개인정보가 등록되어 있지 않은 학생들을 출력해보자(outer join)
+--sub table dp (+) :등록이 안된 어트리뷰트는ㄴ 널값으로 출력
+
+select stu.name,stu.java,stu.spring, stu.ban,info.addr,info.hp
+from student stu, stuinfo info
+where stu.num=info.num(+);
+
+--위의 결과에 null인 학생만 출력
+select stu.name,stu.java,stu.spring, stu.ban,info.addr,info.hp
+from student stu, stuinfo info
+where stu.num=info.num(+) and info.addr is null;
+
+--서브테이블에 연결된 데이터가 있는데 부모테이블에(student)해당 데이터를 삭제하고자
+--할경우 "무결성 제약조건(ANGEL.STUINFO_FU_NUM)이 위배되었습니다- 자식 레코드가 발견되었습니다"오류 발생
+--부모 테이블을 삭제하려고 할때 자식 테이블에 같은게 있으면 지울수 없음
+delete from student
+where num=3;
+
+delete from student
+where num=7;--지워짐
+
+--student의 3번 데이터를 지워보자
+--자식 ㅊ테이블의 num이 3인 데이터를 먼저 삭제후 student 삭제
+delete from stuinfo
+where num=3;
+delete from student
+where num=3;
+
+--부모 테이블 드람
+drop table student;--안됨 외래 키에 의해 참조되는 고유/기본 키가 테이블에 있습니다
+
+--자식 테이블 드랍
+drop table stuinfo;
+
+---------------------------------------------------------------------------
+-- 상품정보를 담을 shop테이블
+--장바구니에 담을 cart테이블shop의 num을 외부키로 설정
+--상품을 삭제하면 장바구니의 해당 데이터가 삭제되도록 on delete cascade 설정
+--시퀀스도 새로 하나 생성
+create SEQUENCE seq_shop
+start with 10
+increment by 10
+nocache;--10 20 30 40
+
+--shop table 생성
+create table shop (
+    sang_no number(5) constraint shop_pk_no primary key,
+    sang_name varchar2(100),
+    sang_price number(7),
+    sang_color varchar2(20)
+    );
+    
+--cart table 생성 shoptable을 외부키로 연결 cascade로 shop의 상품을 지우면
+--장바구니 목록은 자동으로 지워지도록
+create table cart (
+    cart_no number(5) constraint cart_pk_no primary key,
+    sang_no number(5),
+    cnt number(5),
+    cartday date
+    );
+    
+alter table cart
+add CONSTRAINT cart_fk_shopno
+foreign key (sang_no)
+references shop(sang_no) on delete cascade;
+
+--model erd 확인해보세요
+
+--5개의 상품 등록
+insert into shop
+values(seq_shop.nextval,'블라우스',23000,'yellow');
+
+insert into shop
+values(seq_shop.nextval,'청바지',45000,'black');
+insert into shop
+values(seq_shop.nextval,'브이넥티',11000,'white');
+insert into shop
+values(seq_shop.nextval,'브이넥티',23000,'red');
+insert into shop
+values(seq_shop.nextval,'체크자켓',130000,'gray');
+commit;
+
+--cart 에 블라우스 브이넥티 (white)체크자켓 세개에 대해서 추가 날짜는 현재날짜로(sysdate)
+insert into cart
+values(seq_shop.nextval,10,2,sysdate);
+
+insert into cart
+values(seq_shop.nextval,30,3,'2023-09-20');
+
+insert into cart
+values(seq_shop.nextval,50,1,sysdate);
+commit;
+
+
+--조회 inner join  상품명 가격 색상 갯수 구입일 to char(sysdate,yyyy-mm-dd hh24:mi)
+select s.sang_name,sang_price,sang_color,cnt,to_char(cartday,'yyyy-mm-dd hh24:mi') cartday
+from shop s,cart c
+where s.sang_no=c.sang_no;
+
+--아무도 카트에 담지 않은 상품명 조회
+   select sang_name,sang_price,sang_color
+   from shop s, cart c
+   where s.sang_no=c.sang_no(+) and c.cnt is null;
+   
+--cascade를 지정했으므로 카트에 담긴 상품도 삭제가 된다
+--(이때 카트도 자동으로 지워짐)
+delete from shop
+where sang_no=10;
+
+--부모 테이블 drop 시켜보자
+drop table shop;--error
+
+--table 삭제 시 서브테이블 먼저 제거후 부모테이블 제거
+drop table cart;
+drop table shop;
+--sequence 삭제
+drop sequence seq_shop;
+
+---------------------------------------------------------------------
+--문제
+--sequence 생성seq_food
+create sequence seq_food
+nocache;
+
+--레스토랑의 메뉴 테이블 생성 이름:food 
+--foodnum number(*5) pri ,fname 문자열 20(메뉴명 표현),fprice 숫자(7) 가격
+create table food (
+    food_num number(5) constraint food_pk_foodnum primary key,
+    fname varchar2(20),
+    fprice number(7)
+    );
+
+  
+
+--sub 테이블 :person 
+--person_num 숫자(5) 기본키
+--food_num 외부키 cascade
+--person_name 문자열 10  고객명 나타냄
+--예약일 bookingday date타입
+
+create table person (
+    person_num number(5) constraint person_pk_personnum primary key,
+    food_num number(5),
+    person_name varchar2(10),
+    bookingday date
+    ); 
+    
+    
+alter table person
+add constraint person_fk_foodnum
+foreign key (food_num)
+references food(food_num) on delete cascade;
+
+
+
+--food 에 5개의 메뉴 등록 스파게티 떡볶이 등등등
+insert into food
+values(seq_food.nextval,'스파게티',14000);
+
+insert into food
+values(seq_food.nextval,'고르곤졸라',25000);
+
+insert into food
+values(seq_food.nextval,'떡볶이',8000);
+
+insert into food
+values(seq_food.nextval,'떡라면',6000);
+
+insert into food
+values(seq_food.nextval,'해산물피자',30000);
+
+
+
+
+--주문한 고객정보를 추가해보자(같은 메뉴를 여러명이 주문하기도 함)
+insert into person 
+values(seq_food.nextval,5,'이상우',sysdate);
+insert into person 
+values(seq_food.nextval,7,'강호동',sysdate);
+insert into person
+values(seq_food.nextval,8,'이영자',sysdate);
+insert into person 
+values(seq_food.nextval,9,'유재석',sysdate);
+insert into person 
+values(seq_food.nextval,10,'박정무',sysdate);
+commit;
+
+--조회 시퀀스 번호, 주문자명, 음식명,가격,예약일 출력(제목도 한글로 출력)
+select 
+    f.food_num 메뉴번호, person_name 주문자명,fname 메뉴명,fprice 가격,
+    bookingday 예약일
+from food f,person p
+where f.food_num=p.food_num;
+--메뉴즁 스파게티 삭제시 주문한 테이블에서도 지워지는지 확인
+delete from food 
+where food_num=1;
+
+--다시 한번 확인
+select 
+    f.food_num 메뉴번호, person_name 주문자명,fname 메뉴명,fprice 가격,
+    bookingday 예약일
+from food f,person p
+where f.food_num=p.food_num;
+
+
+
+
+
+
+
