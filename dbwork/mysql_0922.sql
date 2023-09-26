@@ -146,3 +146,94 @@ from dual;
 
 select reverse('Happy')
 from dual;
+
+
+-- 조건함수 decode대체
+select if(1=2,'happy','nice')
+from dual;
+
+select name,score, if(score>90,'합격','불합격') 평가
+from sawon;
+
+
+-- 오라클 nvl mysql에서는 if null
+
+select name,ifnull(height,0)
+from member;
+
+-- 수학함수
+select ceiling(5.3),ceiling(5.9)
+from dual;
+
+select floor(5.3),floor(5.9)
+from dual;
+-- 소수점 2자리까지 출력 뒤는 무조건 버림
+select truncate(2.345,2)
+from dual;
+-- 나머지
+select mod(7,2)
+from dual;
+
+-- group by 
+
+-- 부서별 인원수 최고점수 최저점수 평균점후
+select buseo 부서,count(*) 인원수,max(score) 최고점수,min(score) 최저점수,avg(score) 평균점수
+from sawon
+group by buseo;
+
+-- 조인
+create table bitclass (
+   idx smallint primary key,
+   class varchar(30),
+   price int,
+   gigan smallint);
+
+create table stu (
+   num smallint auto_increment primary key,
+   name varchar(20),
+   idx smallint,
+   sugangday date,
+   constraint stu_fk_idx foreign key(idx) references bitclass(idx));
+
+-- bitclass 에 데이타 추가
+insert into bitclass values (100,'Java',110000,10);
+insert into bitclass values (200,'HTML5',90000,8);
+
+insert into bitclass values (300,'jQuery',130000,12);
+insert into bitclass values (400,'Oracle',180000,20);
+
+
+-- stu 에 데이타 추가
+insert into stu (name,idx,sugangday) values ('kim',200,now());
+insert into stu (name,idx,sugangday) values ('lee',100,now());
+insert into stu (name,idx,sugangday) values ('son',300,now());
+insert into stu (name,idx,sugangday) values ('min',400,now());
+
+
+-- inner join
+select *
+from bitclass b,stu s
+where b.idx=s.idx;
+
+-- inner join2
+select *
+from bitclass b
+inner join stu s
+on b.idx=s.idx;
+
+-- s ub 테이블에 데이터가 추가된 상태에서 부모 테이블에 데이터를 삭제해 보자
+delete from bitclass
+where idx=100;-- 오류
+
+-- sub 테이블의 데이타를 먼저 삭제 후 부모 테이블의 데이터 삭제
+delete from stu
+where idx=100;
+delete from bitclass
+where idx=100;
+
+-- 연습용 join 모두 제거하기
+drop table stu;
+drop table bitclass;
+
+drop table member;
+
