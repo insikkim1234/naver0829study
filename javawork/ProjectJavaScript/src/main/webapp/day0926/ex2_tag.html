@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+        
+        table.two{
+			border:5px groove orange;
+			border-collapse: separate;/*seperate가 기본값 collapse는 칸과 칸사이 여백 없애기*/
+		}
+		
+		table.two td,table.two tr{
+			border:1px solid green;
+		}
+    </style>
+    <script>
+		window.onload=function(){
+			
+		}
+	</script>
+</head>
+<body>
+	<h2>각종 테이블 만들기</h2>
+	<table border="1" style="width:300px;border-collapse:collapse;" >
+		<caption><b>[표1]</b></caption>
+		<tr height="50"  bgcolor="orange"><!--tr은 1줄 td는 1칸-->
+			<td align="right" valign="bottom">번호</td>
+			<td align="center" valign="top">이름</td>
+			<td>주소</td>
+			<td rowspan="3">3줄 합치기</td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="pink">10</td>
+			<td>이영자</td>
+			<td align="right" bgcolor="#ccffac">서초구</td>
+		</tr>
+		<tr height="60" align="center" bgcolor="#ffaacc">
+			<td colspan="3"><!--열로 3개 칸 합침시작하는 줄에 주면됨-->
+				have a nice day
+			</td>
+		</tr>
+	</table>
+	<hr>
+	<table class="two">
+		<caption><b>[표2]</b></caption>
+		<tr>
+			<td rowspan="4" width="200" align="center" bgcolor="black">
+				<img src="../image/13.jpg" width="130">
+			</td>
+			<td bgcolor="gold">
+				이름:박신혜
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="tomato">나이:30세</td>
+			
+		</tr>
+		<tr>
+			<td bgcolor="lime">핸드폰:0102333232</td>
+			
+		</tr>
+		<tr>
+			<td bgcolor="orange">주소:역삼동</td>
+			
+		</tr>
+		
+	</table>
+</body>
+</html>
