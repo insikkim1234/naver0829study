@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+    </style>
+    <script>
+		window.onload=function(){
+			document.querySelector("div.one>select").onchange=function(e){
+				//alert("1"+this.value+e.target.value);
+				
+				//해당 value값으로 페이지이동
+				//자바스크립트에ㅓ 페이지 이동하는 벙법
+				//location.href="url or 파일"
+				location.href=this.value;//e.target.value도 가능
+			}
+			document.querySelector("div.two>select").onchange=function(){
+				//this.value:option에 value가 없으면 option 사이의 라벨값이 얻어지고
+				//value가 있으면 value값이 얻어진다
+				let imgSrc=this.value;
+				let name=this.options[this.selectedIndex].label;//value가 따로 있는 경우 라벨은 이방법으로 ㄷ얻는다
+				//alert(imgSrc+","+name);// value 값 저장하는 함수
+				//이미지의 속성을 변경한다
+				document.querySelector("img.photo").setAttribute("src",imgSrc);
+				
+				//라벨은 h2.title>b에 넣어주세요
+				document.querySelector("h2.title>b").innerHTML=name;
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h3>select Event</h3>
+	<div class="one">
+		<select class="form-select" style="width:200px">
+			<option selected disabled hidden>선택해주세요</option><!--셀렉트 디스에이블드 히든 써서 처음에는 있는데 선택지는 없음-->
+			<option value="http://www.naver.com">네이버</option>
+			<option value="http://www.nate.com">네이트</option>
+			<option value="http://www.google.com">구글</option>
+			<option value="http://www.daum.net">다음</option>
+		</select>
+	</div>
+	<br><br>
+	<div class="two">
+		<select class="form-select" style="width:200px">
+			<option selected disabled hidden>선택해주세요</option><!--셀렉트 디스에이블드 히든 써서 처음에는 있는데 선택지는 없음-->
+			<option value="../image/18.jpg">신세경</option>
+			<option value="../image/12.jpg">박보영</option>
+			<option value="../food/11.jpg">망빙</option>
+			<option value="../food/1.jpg">샌드위치</option>
+			<option value="../shop/30.jpg">머리띠</option>
+		</select>
+	</div>
+	<br><br>
+	<img src="../image/1.jpg" class="img-thumbnail photo" width="250"> <!--img-thumbnail 부스트랩꺼 photo내꺼-->
+	<br>
+	<h2 class="title"><b>test</b></h2>
+</body>
+</html>
