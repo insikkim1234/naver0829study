@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: 'Lobster';
+        }
+        /*리스트 형태였던 메뉴를 리스트 형태 없애고 초기화*/
+        nav,ul,li{
+			margin:0;
+			padding:0;
+		}
+		nav{
+			display: block;
+		}
+		
+		ul,li{
+			list-style: none;
+		}
+		
+		ul{
+			margin-bottom:30px;
+		}
+		
+		a{
+			text-decoration: none;
+		}
+		
+		.clear{
+			clear:both;/*float :left속성 해제;*/
+		}
+		
+		/*menu1*/
+		.menu1 li a{
+			background-color: #999;
+			color:#fff;
+			width:85px;
+			display:block;
+			margin-bottom: 3px;
+			height: 33px;
+			padding: 8px;
+			transition: width 1.5s;
+		}
+		
+		.menu1 li a:hover{
+			color: #900;
+			letter-spacing: 3px;
+			width: 400px;
+		}
+		
+		/*menu2*/
+		.menu2{
+			height:100px;
+		}
+		.menu2 li a{
+			font-family: 'Comic Sans MS';
+			float:left;
+			background-color: #3cb471;
+			color:#fffacd;
+			margin-right:3px;
+			width:85px;
+			height:35px;
+			padding: 8px;
+			transition: height 1.2s;/*마우스 오버시 높이가 변경되는데 1.2c초 걸린다*/
+		}
+		.menu2 li a:hover{
+			background-color: #afeeee;
+			color:#db7093;
+			height:100px;
+		}
+		
+		
+		/*menu3*/
+		.menu3 li a{
+			float:left;
+			background-color: #87cdfa;
+			color:#fff;
+			margin-left: 3px;
+			width:85px;
+			height:33px;
+			padding: 8px;
+			transition: background 1.2s,color 1.2s;
+		}
+		.menu3 li a:hover{
+			background-color: #db7093;
+			color:#fffacd;
+		}
+		
+		/*nav main*/
+		#main_menu{
+			margin-top: 20px;
+			
+		}
+		#main_menu li a{
+			color:#333;
+			background-color: #9c0;
+			width:150px;
+			display: block;
+			text-align: center;
+			padding: 5px;
+			transition: all 0.3s;
+		}
+		
+		#main_menu li a:hover{
+			color:#ccc;
+			background-color: #000;
+			background: url(../image/C1.png) no-repeat right center;
+			background-size: 30px 30px;
+		}
+    </style>
+    <script>
+		window.onload=function(){
+			
+		}
+	</script>
+</head>
+<body>
+	<!--ul은 점으로 나오는 리스트-->
+	<ul class="menu1">
+		<li><a href="#">MENU01</a></li>
+		<li><a href="#">MENU02</a></li>
+		<li><a href="#">MENU03</a></li>
+		<li><a href="#">MENU04</a></li>
+		<li><a href="#">MENU05</a></li>
+	</ul>
+	<div class="clear"></div>
+	<ul class="menu2">
+		<li><a href="#">MENU01</a></li>
+		<li><a href="#">MENU02</a></li>
+		<li><a href="#">MENU03</a></li>
+		<li><a href="#">MENU04</a></li>
+		<li><a href="#">MENU05</a></li>
+	</ul>
+	<div class="clear"></div>
+	<ul class="menu3">
+		<li><a href="#">MENU01</a></li>
+		<li><a href="#">MENU02</a></li>
+		<li><a href="#">MENU03</a></li>
+		<li><a href="#">MENU04</a></li>
+		<li><a href="#">MENU05</a></li>
+	</ul>
+	<div class="clear"></div>
+	<nav id="main_menu">
+		<ul>
+		<li><a href="#">MENU01</a></li>
+		<li><a href="#">Java</a></li>
+		<li><a href="#">HTML5</a></li>
+		<li><a href="#">Mysql</a></li>
+		<li><a href="#">SpringBoot</a></li>
+		</ul>
+	</nav>
+</body>
+</html>

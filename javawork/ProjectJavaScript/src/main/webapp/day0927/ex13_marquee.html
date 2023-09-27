@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+    </style>
+    <script>
+		window.onload=function(){
+			
+		}
+	</script>
+</head>
+<body>
+	<marquee>have a nice day</marquee><!--우 좌-->
+	<marquee direction="right">have a nice day</marquee><!--좌 우-->
+	<marquee direction="right" behavior="alternate">have a nice day</marquee><!--좌 우왔다갔다-->
+	<marquee direction="right" behavior="slide">have a nice day</marquee><!--좌 우한번만 이동-->
+	
+	<marquee>
+		<script>
+			for(let i=1;i<=8;i++){
+				document.write(`<img src="../image/C${i}.png" width="60">`);
+			}
+		</script>
+	</marquee>
+	
+	<marquee width="100" height="400" direction="down" behavior="alternate">
+		<img src="../food/11.jpg" width="100">
+	</marquee>
+</body>
+</html>

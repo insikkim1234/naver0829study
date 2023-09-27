@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+    </style>
+    <script>
+		window.onload=function(){
+			document.getElementById("btn1").onclick=function(){
+				alert("경고창입니다\n 내일부터는 긴연휴입니다");
+			}
+			document.getElementById("btn2").onclick=function(){
+				let name=prompt("당시늬 이름은>","강호동");
+				document.querySelector(".msg").innerHTML=`내이름은 <b>${name}</b> 입니다`;//innertext는 안에 태그 못넣음
+				
+			}
+			document.getElementById("btn3").onclick=function(){
+				let result=confirm("데이타를 추가할까요?");
+				//alert(result);//true 혹은 false
+				if(result)
+					document.querySelector(".msg").innerHTML="데이터를 추가햇습니다";
+				else
+					document.querySelector(".msg").innerHTML="취소했습니다";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<button type="button" class="btn btn-danger btn-sm" id="btn1">alert</button>
+		
+		<button type="button" class="btn btn-success btn-sm" id="btn2">prompt</button>
+		
+		<button type="button" class="btn btn-info btn-sm" id="btn3">confirm</button>
+		
+		<br><br>
+		<div class="alert alert-warning msg">출력</div><!--부트스트랩 클래스 두개 내꺼 하나-->
+	</div>
+</body>
+</html>

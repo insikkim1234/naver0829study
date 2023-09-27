@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+        
+        #ex1,#ex2{
+			background-color: #903;
+			width:100px;
+			height:20px;
+			overflow: hidden;/*페이지안에서 그림이 가려짐*/
+			cursor: pointer;/*누를 수 있게 해줌*/
+		}
+		/*마우스 올렸을 때 효과지정*/
+		#ex1:hover,#ex2:hover{
+			width:400px;
+			
+		}
+		/*애니메이션 효과*/
+		#ex1{
+			transition-property:width ;/*적용될 속성*/
+			transition-duration:2s;/*시간 2초*/
+		}
+		/*위의 두 속성을 한번에 적용*/
+		#ex2{
+			transition: width 3s;
+			
+		}
+		
+		#ex3 img:hover{
+			opacity: 1.0;
+			border-color:#345600 ;
+			transform: rotate(45deg);
+		}
+		
+		#ex3 img{
+			width: 100px;
+			height:100px;
+			opacity: 0.2;/*0이면 완전투명 1이면 완전진함*/
+			border:5px solid #900;
+			transform :rotate(10deg);
+			transition :all 3s;/*all:모든 속성에 적용*/
+		}
+		
+		
+    </style>
+    <script>
+		window.onload=function(){
+			
+		}
+	</script>
+</head>
+<body>
+	<p id="ex1">transition test 1</p>
+	<p id="ex2">transition test 2</p>
+	<p id="ex3">
+		<img src="../image/C7.png">
+	</p>
+</body>
+</html>
