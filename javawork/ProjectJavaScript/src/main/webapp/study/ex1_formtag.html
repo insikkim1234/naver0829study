@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+        div.message{
+			color: magenta;
+			font-family: 'Gamja Flower';
+		}
+    </style>
+    <script>
+		window.onload=function(){
+			let m=document.querySelector("div.message");
+			document.getElementById("sfont").onchange=function(){
+				m.style.fontFamily=this.value;
+			}
+			
+			document.querySelector(".btnsmall").onclick=function(){
+				let fs=parseInt(m.style.fontSize,10);
+				fs-=2;
+				m.style.fontSize=fs+"px";
+			}
+			document.querySelector(".btnlarge").onclick=function(){
+				let fs=parseInt(m.style.fontSize,10);
+				fs+=2;
+				m.style.fontSize=fs+"px";
+			}
+			
+			document.querySelector(".ckfill").onclick=function(){
+				if(this.checked)
+					m.style.backgroundColor=this.value;
+				else
+					m.style.backgroundColor="white";	
+			}
+			
+			let fcolor=document.getElementsByName("fcolor");
+			for(let i=0;i<fcolor.length;i++)
+			{
+				fcolor[i].onclick=function(){
+					m.style.color=this.value;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div style="margin:30px;">
+		<div class="input-group" style="width:400px;">
+			<select id="sfont" class="form-select" style="width: 200px">
+				<option>Gamja Flower</option>
+				<option>Jua</option>
+				<option>Nanum Pen Script</option>
+				<option>Lobster</option>
+				<option>Parmanent Marker</option>
+				<option>Single day</option>
+			</select>
+			<button type="button" class="btn btn-info btnsmall">점점작게</button>
+			<button type="button" class="btn btn-success btnlarge">점점크게</button>
+		</div>
+		
+		<div style="margin:30px;">
+			<label><input type="checkbox" value="orange" class="ckfill">채우기</label>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<label><input type="radio" name="fcolor" value="green">초록색</label>
+			<label><input type="radio" name="fcolor" value="magenta" checked>마젠타</label>
+			<label><input type="radio" name="fcolor" value="black">검정색</label>
+			<label><input type="radio" name="fcolor" value="purple">보라색</label>
+		</div>
+		
+		<div class="message" style="margin-top: 30px; font-size: 20px;">
+			오늘은 화요일
+		</div>
+	</div>
+</body>
+</html>
