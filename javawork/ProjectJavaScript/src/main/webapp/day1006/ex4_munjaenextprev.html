@@ -28,7 +28,25 @@
 		}
     </style>
     <script>
-		
+		$(function(){
+			//div.box에 마우스를 올리면 해당색상을 얻어서 result의 색상을 변경하고
+			//h3의 글자를 얻어서 h1에 넣기 별점을 얻어서 result의 h3얻기
+			$("div.box").mouseover(function(){
+				//배경색 얻기
+				let bg=$(this).css("background-color");
+				//배경색 적용
+				$("div.result").css("background-color",bg);
+				//제목얻기
+				let title=$(this).next().next();
+				//제목 적용
+				$("div.result>h1").text(title);
+				//별점얻기
+				let star=$(this).next().next().find("span").text();
+				//별점적용
+				$("div.result>h3").text(star);
+				
+			});
+		})
 	</script>
 </head>
 <body>
