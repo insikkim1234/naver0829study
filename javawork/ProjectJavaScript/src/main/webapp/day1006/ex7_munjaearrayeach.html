@@ -11,6 +11,22 @@
         body * {
             font-family: 'Jua';
         }
+        div.moviestar>figure.photo{
+			float: left;
+			margin-right: 10px;
+		}
+		div.moviestar>figure.photo>img{
+			width:100px;
+			height:150px;
+		}
+		div.moviestar2>figure.photo{
+			float: left;
+			margin-right: 10px;
+		}
+		div.moviestar2>figure.photo>img{
+			width:130px;
+			height:150px;
+		}
     </style>
     <script>
 		$(function(){
@@ -24,12 +40,49 @@
 			
 			//figure 이용해서 사진과 이름 주소를 넣고 글꼴을 적용시켜 주세요
 			$.each(data,function(index,item){
-				let s
-			})
-		})
+				let s=
+					`
+					<figure class="photo">
+						<img src="${item.photo}">
+						<figcaption >
+							<h5 style="font-family:${item.font}">${item.name}</h5>
+							<h6>${item.addr}</h6>
+						</figcaption>	
+					</figure>	
+					`;
+					$("div.moviestar").append(s);
+			});
+			/////////////////////////////////////////////
+			let data2=
+			{"photo":
+			[
+				{"name":"수지","photo":"../image/19.jpg","addr":"강남구 역삼동","font":"Gamja Flower"},
+				{"name":"박보영","photo":"../image/12.jpg","addr":"은평구 진관동","font":"Jua"},
+				{"name":"신민아","photo":"../image/17.jpg","addr":"부산시 해운다구","font":"Nanum Pen Script"},
+				{"name":"김우빈","photo":"../image/2.jpg","addr":"대구시","font":"Single Day"},
+				{"name":"강동원","photo":"../image/9.jpg","addr":"영등포구 여의도","font":"Permanent Marker"}
+			]};
+			
+					//data2.photo가 배열이므로
+			$.each(data2.photo,function(index,item){
+				let s=
+					`
+					<figure class="photo">
+						<img src="${item.photo}">
+						<figcaption >
+							<h5 style="font-family:${item.font}">${item.name}</h5>
+							<h6>${item.addr}</h6>
+						</figcaption>	
+					</figure>	
+					`;
+					$("div.moviestar").append(s);
+			});
+		});
 	</script>
 </head>
 <body>
 	<div class="moviestar"></div>
+	<hr style="clear:both;">
+	<div class="moviestar2"></div>
 </body>
 </html>
