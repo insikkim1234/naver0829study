@@ -37,7 +37,7 @@
 			//$.each
 			//인자로 index 숫자와 각 인덱스별 아이템을 받는다
 			$.each(arr,function(index,item){
-				console.log(index,item);//0,ㅔpink....
+				
 				$("div.a").eq(index).css("background-color",item).text(item);
 			});
 			
@@ -51,11 +51,12 @@
 			//이때 아이템에는 키에 해당하는 값이 들어온다
 			$.each(arr2,function(index,item){
 				let s=
-						`<div style="font-family:${item.font}; border:${item.border};background-color:${item.bcolor};color:${item.fcolor}">${item.font}</div>`;
+						`<div style="font-family:${item.font};
+									 border:${item.border};
+									 background-color:${item.bcolor};
+									 color:${item.fcolor}">				${item.font}			</div>`;
 				$("div.show").append(s);		
 			});
-			
-			
 		});
 	</script>
 </head>
