@@ -12,20 +12,20 @@
             font-family: 'Jua';
         }
         div.one>div.box{
-			width:50px;
-			height:50px;
-			cursor: pointer;
-			border:1px solid gray;
-			margin:5px;
-			float:left;
-		}
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		border: 1px solid gray;
+		margin:5px;
+		float: left;
+	    }
 		
 		div.result{
-			border:5px inset gray;
-			text-align: center;
-			margin:50px 100px;
-			width:300px;
-		}
+		border: 5px inset gray;
+		text-align: center;
+		margin:50px 100px;
+		width: 300px;
+	}
     </style>
     <script>
 		$(function(){
@@ -37,7 +37,7 @@
 				//배경색 적용
 				$("div.result").css("background-color",bg);
 				//제목얻기
-				let title=$(this).next().next();
+				let title=$(this).next().text();
 				//제목 적용
 				$("div.result>h1").text(title);
 				//별점얻기
@@ -46,7 +46,7 @@
 				$("div.result>h3").text(star);
 				
 			});
-		})
+		});
 	</script>
 </head>
 <body>
@@ -56,28 +56,28 @@
 		<div class="message">
 			<span>☆☆☆☆</span>
 		</div>
-		<div style="clear:both;"></div>
+		<div style="clear: both;"></div>
 		
 		<div class="box" style="background-color : palevioletred;"></div>
 		<h3>스타워즈</h3>
 		<div class="message">
 			<span>☆☆☆★★</span>
 		</div>
-		<div style="clear:both;"></div>
+		<div style="clear: both;"></div>
 		
 		<div class="box" style="background-color : rebeccapurple"></div>
 		<h3>오비완 캐노비</h3>
 		<div class="message">
 			<span>☆★★</span>
 		</div>
-		<div style="clear:both;"></div>
+		<div style="clear: both;"></div>
 		
 		<div class="box" style="background-color : skyblue;"></div>
 		<h3>아소카</h3>
 		<div class="message">
 			<span>☆☆☆★★</span>
 		</div>
-		<div style="clear:both;"></div>
+		<div style="clear: both;"></div>
 	</div>
 	
 	<div class="result">
