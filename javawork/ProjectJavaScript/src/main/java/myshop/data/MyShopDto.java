@@ -1,25 +1,22 @@
-package data;
+package myshop.data;
 
-public class ShopDto {
+import java.sql.Timestamp;
+
+public class MyShopDto {
+	private int num;
 	private String sangpum;
 	private String photo;
 	private int price;
 	private String color;
+	private Timestamp writeday;
 	
-	//src main java에 data 패키지 만들고 ShopDtojava클래스만들기
-	//genearte consturctor using field disselectall
-	public ShopDto() {
-		super();
+	
+	public int getNum() {
+		return num;
 	}
-	//generate consructor using field selectall
-	public ShopDto(String sangpum, String photo, int price, String color) {
-		super();
-		this.sangpum = sangpum;
-		this.photo = photo;
-		this.price = price;
-		this.color = color;
+	public void setNum(int num) {
+		this.num = num;
 	}
-	///generate getter and setter selectall
 	public String getSangpum() {
 		return sangpum;
 	}
@@ -44,6 +41,11 @@ public class ShopDto {
 	public void setColor(String color) {
 		this.color = color;
 	}
-
+	public Timestamp getWriteday() {
+		return writeday;
+	}
+	public void setWriteday(Timestamp writeday) {
+		this.writeday = writeday;
+	}
+	
 }
-
