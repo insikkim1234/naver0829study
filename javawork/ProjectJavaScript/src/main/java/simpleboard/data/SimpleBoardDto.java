@@ -10,8 +10,17 @@ public class SimpleBoardDto {
 	private String photo;
 	private int readcount;
 	private Timestamp writeday;
+	//댓글 갯수를 저장하기 위한 변수
+	private int answercount;
 	
 	
+	//answercount의 세터 게터
+	public int getAnswercount() {
+		return answercount;
+	}
+	public void setAnswercount(int answercount) {
+		this.answercount = answercount;
+	}
 	//geter setter selectall
 	public String getNum() {
 		return num;

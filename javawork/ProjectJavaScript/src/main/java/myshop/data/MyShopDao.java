@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
 import java.util.Vector;
 
 import mysql.db.DBConnect;
@@ -18,7 +17,7 @@ public class MyShopDao {
 	//전체 출력하는 메서드
 		public List<MyShopDto> getAllSangpums()
 		{
-			List<MyShopDto> list=new Vector<MyShopDto>();
+			List<MyShopDto> list=new Vector()<MyShopDto>();
 			Connection conn= db.getConnection();
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;

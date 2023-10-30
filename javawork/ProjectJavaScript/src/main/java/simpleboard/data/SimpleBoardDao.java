@@ -4,9 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
-
 import mysql.db.DBConnect;
 
 public class SimpleBoardDao {
@@ -16,7 +15,7 @@ public class SimpleBoardDao {
 	//목록
 	public List<SimpleBoardDto> getAllList()
 	{
-		List<SimpleBoardDto> list=new Vector<SimpleBoardDto>();
+		List<SimpleBoardDto> list=new ArrayList<>();
 		String sql="select * from simpleboard order by num desc";
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
