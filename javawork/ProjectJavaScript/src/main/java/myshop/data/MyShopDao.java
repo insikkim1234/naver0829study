@@ -17,7 +17,7 @@ public class MyShopDao {
 	//전체 출력하는 메서드
 		public List<MyShopDto> getAllSangpums()
 		{
-			List<MyShopDto> list=new Vector()<MyShopDto>();
+			List<MyShopDto> list=new Vector<MyShopDto>();
 			Connection conn= db.getConnection();
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;

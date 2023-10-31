@@ -11,7 +11,11 @@ import java.sql.SQLException;
 
 public class DBConnect {
 	static final String MYSQL_DRIVER="com.mysql.cj.jdbc.Driver";
-	static final String MYSQL_URL="jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul";
+	//local mysql url
+	//static final String MYSQL_URL="jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul";
+	
+	//원격 연결
+	static final String MYSQL_URL="jdbc:mysql://db-jbnjj-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul";
 	
 	public DBConnect() {
 		try {
@@ -27,7 +31,11 @@ public class DBConnect {
 	{
 		Connection conn=null;
 		try {
-			conn=DriverManager.getConnection(MYSQL_URL, "root", "1234");
+			//local 원격
+			//conn=DriverManager.getConnection(MYSQL_URL, "root", "1234");
+			
+			//원격 연결
+			conn=DriverManager.getConnection(MYSQL_URL, "study", "bitcamp123!@#");
 		} catch (SQLException e) {
 			System.out.println("my sql 연결실패:"+e.getMessage());
 		}
