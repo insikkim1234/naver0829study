@@ -17,16 +17,14 @@
 		JSONObject ob=new JSONObject();
 		
 		ob.put("num",dto.getNum());
-		ob.put("writer",dto.getNum());
+		ob.put("writer",dto.getWriter());
 		ob.put("subject",dto.getSubject());
 		ob.put("content",dto.getContent());
 		ob.put("photo",dto.getPhoto());
 		ob.put("readcount",dto.getReadcount());
-		ob.put("writeday",dto.getWriteday());
+		ob.put("writeday",sdf.format(dto.getWriteday()));
 		
-		arr.add(ob);
+		arr.add(ob);		
 	}
-
-
 %>
-<%=arr.toString() %>
+<%=arr.toString()%>
