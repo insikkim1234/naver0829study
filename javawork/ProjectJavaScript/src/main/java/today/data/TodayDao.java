@@ -20,7 +20,7 @@ public class TodayDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from today order by num desc ";
+		String sql="select * from today order by num  ";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -39,7 +39,7 @@ public class TodayDao {
 				dto.setGooglenote(rs.getString("googlenote"));
 				dto.setCommit(rs.getString("commit"));
 				dto.setLogout(rs.getString("logout"));
-				dto.setWriteday(rs.getTimestamp("wrieday"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
 				
 				list.add(dto);
 				

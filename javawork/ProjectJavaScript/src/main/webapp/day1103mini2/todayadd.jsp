@@ -8,6 +8,7 @@
     pageEncoding="UTF-8"%>
 <%
 
+	
 	TodayDao dao=new TodayDao();
 	TodayDto dto=new TodayDto();
 	
@@ -22,6 +23,7 @@
 	
 	
 	
+	
 	dto.setLogin("login");
 	dto.setGithub("github");
 	dto.setNaver("naver");
@@ -29,6 +31,7 @@
 	dto.setGooglenote("googlenote");
 	dto.setCommit("commit");
 	dto.setLogout("logout");
+	
 	
 	
 	

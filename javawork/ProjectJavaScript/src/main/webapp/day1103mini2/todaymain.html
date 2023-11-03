@@ -11,19 +11,96 @@
         body * {
             font-family: 'Jua';
         }
+      
+		div.result{
+			transition:font-size 5s;
+		}
+		div.result:hover{
+			font-size: 500%;
+		}
+		div.result{
+			background-color:blanchedalmond;
+		}
+		
+		#login{
+			background-color: crimson;
+		}
+		
+		#github{
+			background-color: orange;
+		}
+		
+		#naver{
+			background-color: yellow;
+		}
+		
+		#slack{
+			background-color: green;
+		}
+		
+		#googlenote{
+			background-color: blue;
+		}
+		
+		#commit{
+			background-color: darkblue;
+		}
+		
+		#logout{
+			background-color: purple;
+		}
+		
+		
+       
+       
+    
+    
     </style>
     <script>
-	
+		$(function(){
+			
+			
+			
+			$("#addfrm").submit(function(e){
+				e.preventDefault();
+				let formData=$(this).serialize();
+				
+				$.ajax({
+					type:"get",
+					dataType:"html",
+					url:"todayadd.jsp",
+					data:formData,
+					success:function(res){
+						
+						
+						$("#login").val("y");
+						$("#github").val("y");
+						$("#naver").val("y");
+						$("#slack").val("y");
+						$("#googlenote").val("y");
+						$("#commit").val("y");
+						$("#logout").val("y");
+						
+						$(".result").text("오늘 할일 완료");
+						
+						
+					}
+					
+				});
+				
+			});
+			
+		});
 	</script>
 </head>
 <body>
 	<div class="todayform" >
 	 	<form id="addfrm">
-	 		<table class="table table-bordered">
+	 		<table class="table table-bordered" >
 	 			<tr>
 	 				<th width="100">출석비콘</th>
 	 				<td>
-	 					<select name="login" class="form-select">
+	 					<select name="login" class="form-select" id="login">
 	 						<option>y</option>
 	 						<option>n</option>
 	 					</select>
@@ -32,7 +109,7 @@
 	 			<tr>
 	 				<th width="100">깃허브</th>
 	 				<td>
-	 					<select name="github" class="form-select">
+	 					<select name="github" class="form-select" id="github">
 	 						<option>y</option>
 	 						<option>n</option>
 	 					</select>
@@ -41,7 +118,7 @@
 	 			<tr>
 	 				<th width="100">네이버 로그인</th>
 	 				<td>
-	 					<select name="naver" class="form-select">
+	 					<select name="naver" class="form-select" id="naver">
 	 						<option>y</option>
 	 						<option>n</option>
 	 					</select>
@@ -50,7 +127,7 @@
 	 			<tr>
 	 				<th width="100">슬랙</th>
 	 				<td>
-	 					<select name="slack" class="form-select">
+	 					<select name="slack" class="form-select" id="slack">
 	 						<option>y</option>
 	 						<option>n</option>
 	 					</select>
@@ -59,7 +136,7 @@
 	 			<tr>
 	 				<th width="100">구글미트</th>
 	 				<td>
-	 					<select name="googlenote" class="form-select">
+	 					<select name="googlenote" class="form-select" id="googlenote">
 	 						<option>y</option>
 	 						<option>n</option>
 	 					</select>
@@ -68,7 +145,7 @@
 	 			<tr>
 	 				<th width="100">커밋</th>
 	 				<td>
-	 					<select name="commit" class="form-select">
+	 					<select name="commit" class="form-select" id="commit">
 	 						<option>y</option>
 	 						<option>n</option>
 	 					</select>
@@ -77,7 +154,7 @@
 	 			<tr>
 	 				<th width="100">퇴근비콘</th>
 	 				<td>
-	 					<select name="logout" class="form-select">
+	 					<select name="logout" class="form-select"  id="logout">
 	 						<option>y</option>
 	 						<option>n</option>
 	 					</select>
@@ -90,10 +167,11 @@
 	 			</tr>
 	 		</table>
 	 	</form>
-	 	<hr width="500" style="height:5px; background-color:gray">
+	 	<hr width="500" style="height:5px; background-color:blanchedalmond">
 	 </div>
-	 <div style="margin:30px; width:350px;" class="result">
+	 <div  class="result" style="margin:30px;width:350px;border-radius: 10px;">
 		 
 	 </div>
+	 	<hr width="500" style="height:5px; background-color:blanchedalmond">
 </body>
 </html>
