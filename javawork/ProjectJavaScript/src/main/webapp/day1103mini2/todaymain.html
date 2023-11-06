@@ -19,36 +19,23 @@
 			font-size: 500%;
 		}
 		div.result{
-			background-color:blanchedalmond;
+			background-color:skyblue;
+			color:white;
 		}
 		
-		#login{
-			background-color: crimson;
+		#checktable{
+			font-size: 30px;
 		}
 		
-		#github{
-			background-color: orange;
+		#checktable th{
+			border-bottom: 1px solid black;
 		}
 		
-		#naver{
-			background-color: yellow;
+		#checktable th:hover {
+			background: skyblue;
+			color:white;
 		}
 		
-		#slack{
-			background-color: green;
-		}
-		
-		#googlenote{
-			background-color: blue;
-		}
-		
-		#commit{
-			background-color: darkblue;
-		}
-		
-		#logout{
-			background-color: purple;
-		}
 		
 		
        
@@ -84,6 +71,7 @@
 						$(".result").text("오늘 할일 완료");
 						
 						
+						
 					}
 					
 				});
@@ -94,84 +82,88 @@
 	</script>
 </head>
 <body>
+	
 	<div class="todayform" >
+		<hr width="400" style="height:5px; background-color:blanchedalmond">
 	 	<form id="addfrm">
-	 		<table class="table table-bordered" >
+	 		<table id="checktable">
 	 			<tr>
-	 				<th width="100">출석비콘</th>
+	 				<th width="200">출석비콘</th>
 	 				<td>
-	 					<select name="login" class="form-select" id="login">
-	 						<option>y</option>
-	 						<option>n</option>
-	 					</select>
+	 					<form>
+							<input type="radio" value="y" id="login" name="login" >y
+							<input type="radio" value="n" id="login" name="login" checked>n
+						</form>
 	 				</td>
 	 			</tr>
 	 			<tr>
-	 				<th width="100">깃허브</th>
+	 				<th width="200">깃허브</th>
 	 				<td>
-	 					<select name="github" class="form-select" id="github">
-	 						<option>y</option>
-	 						<option>n</option>
-	 					</select>
+	 					<form>
+							<input type="radio" value="y" id="github" name="github">y
+							<input type="radio" value="n" id="github" name="github" checked>n
+						</form>
 	 				</td>
 	 			</tr>
 	 			<tr>
-	 				<th width="100">네이버 로그인</th>
+	 				<th width="200">네이버 로그인</th>
 	 				<td>
-	 					<select name="naver" class="form-select" id="naver">
-	 						<option>y</option>
-	 						<option>n</option>
-	 					</select>
+	 					<form>
+							<input type="radio" value="y" id="naver" name="naver">y
+							<input type="radio" value="n" id="naver" name="naver" checked>n
+						</form>
 	 				</td>
 	 			</tr>
 	 			<tr>
-	 				<th width="100">슬랙</th>
+	 				<th width="200">슬랙</th>
 	 				<td>
-	 					<select name="slack" class="form-select" id="slack">
-	 						<option>y</option>
-	 						<option>n</option>
-	 					</select>
+	 					<form>
+							<input type="radio" value="y" id="slack" name="slack">y
+							<input type="radio" value="n" id="slack" name="slack" checked>n
+						</form>
 	 				</td>
 	 			</tr>
 	 			<tr>
-	 				<th width="100">구글미트</th>
+	 				<th width="200">구글미트</th>
 	 				<td>
-	 					<select name="googlenote" class="form-select" id="googlenote">
-	 						<option>y</option>
-	 						<option>n</option>
-	 					</select>
+	 					<form>
+							<input type="radio" value="y" id="googlenote" name="googlenote">y
+							<input type="radio" value="n" id="googlenote" name="googlenote" checked>n
+						</form>
 	 				</td>
 	 			</tr>
 	 			<tr>
-	 				<th width="100">커밋</th>
+	 				<th width="200">커밋</th>
 	 				<td>
-	 					<select name="commit" class="form-select" id="commit">
-	 						<option>y</option>
-	 						<option>n</option>
-	 					</select>
+	 					<form>
+							<input type="radio" value="y" id="commit" name="commit">y
+							<input type="radio" value="n" id="commit" name="commit" checked>n
+						</form>
 	 				</td>
 	 			</tr>
 	 			<tr>
-	 				<th width="100">퇴근비콘</th>
+	 				<th width="200">퇴근비콘</th>
 	 				<td>
-	 					<select name="logout" class="form-select"  id="logout">
-	 						<option>y</option>
-	 						<option>n</option>
-	 					</select>
+	 					<form >
+							<input type="radio" value="y" id="logout" name="logout">y
+							<input type="radio" value="n" id="logout" name="logout" checked>n
+						</form>
 	 				</td>
 	 			</tr>
 	 			<tr>
 		 			<td colspan="2" align="center">
-		 				<button type="submit" class="btn btn-success">데이터 추가</button>	
+		 				<button type="submit" class="btn btn-success"
+		 				style="background:skyblue">퇴근</button>	
+		 				
 		 			</td>
 	 			</tr>
 	 		</table>
 	 	</form>
-	 	<hr width="500" style="height:5px; background-color:blanchedalmond">
+	 	<hr width="400" style="height:5px; background-color:blanchedalmond">
 	 </div>
 	 <div  class="result" style="margin:30px;width:350px;border-radius: 10px;">
 		 
 	 </div>
-	 	<hr width="500" style="height:5px; background-color:blanchedalmond">
+	 	<hr width="400" style="height:5px; background-color:blanchedalmond">
 </body>
 </html>

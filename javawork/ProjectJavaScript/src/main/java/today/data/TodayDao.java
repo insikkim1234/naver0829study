@@ -81,6 +81,24 @@ public class TodayDao {
 		
 		
 	}
+	public void deleteToday(String num)
+	{
+		String sql="delete from today where num=?";
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
 	
 	
 

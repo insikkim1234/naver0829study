@@ -23,8 +23,9 @@
 	<div class="input-group" style="width:400px;margin:30px 100px">
 		<h4><%=loginid %>님이 로그인 중입니다</h4>
 		<button type="button" class="btn btn-danger"
-		style="width:100px;margin-left:20px;"
+		style="width:100px;margin-left:20px;background-color:skyblue;"
 		onclick="location.href='logoutaction.jsp'">로그아웃</button>
 	</div>
+	<hr width="1000" style="height:5px; background-color:blanchedalmond">
 </body>
 </html>

@@ -20,18 +20,19 @@
 %>
 <body>
 <div style="margin:50px;">
-	<%
-	if(loginok==null){%>
-		<jsp:include page="loginform.jsp"/>
+	<%if(loginok==null){%>
+		
 		<br><br>
-		<h3><b>멤버 정보를 확인하려면 먼저 로그인을 해주세요</b></h3>
+		<jsp:include page="loginform.jsp"/>
+		
+		
 	<%}else{ %>
 		<jsp:include page="logoutform.jsp"/>
 		<br><br>
-		<jsp:include page="todaymain.html"/>
-		<br><br>
 		<jsp:include page="dbread.jsp"/>
-	<%} %>
+		<br><br>
+		<jsp:include page="todaymain.html"/>
+	<%}%>
 </div>
 </body>
 </html>
