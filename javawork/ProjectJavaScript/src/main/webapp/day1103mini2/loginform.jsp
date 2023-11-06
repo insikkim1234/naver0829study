@@ -42,9 +42,7 @@
 			<br><br>
 			<table class="table table-bordered logintable" >
 				
-				<caption align="bottom">
-					
-				</caption>
+				
 				<tr>
 					<td width=150>
 						<input type="text" class="form-control" autofocus required
