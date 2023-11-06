@@ -1,4 +1,5 @@
-<%@page import="java.util.Vector"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@page import="data.ShopDto"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -27,7 +28,7 @@
 		//request에 데이터를 저장해 보자
 		String msg="happy day";
 	
-		List<ShopDto> list=new Vector<>();
+		List<ShopDto> list=new ArrayList<>();
 		list.add(new ShopDto("플랫슈즈","14",23000,"green"));
 		list.add(new ShopDto("머리끈","26",8000,"yellow"));
 		list.add(new ShopDto("보석머리띠","30",15000,"purple"));
