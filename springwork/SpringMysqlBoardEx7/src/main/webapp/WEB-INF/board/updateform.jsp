@@ -12,15 +12,12 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <script type="text/javascript">
-
-//(5)writeform.jsp 수정
-	/* 1)반응성 이벤트 만들기 */
 	$(function(){
-			//1.카메라버튼 클릭시 만들어둔 id="upload"에다가 업로드된 파일을 알려주는 이벤트
+		//카메라 이벤트
 		$(".uploadcamera").click(function(){
-			$("#upload").trigger("click");
+			$("#upload").trigger("click");//이벤트 강제 발생
 		});
-			//2.id=upload에 파일을 올려 준다
+		
 		$("#upload").change(function(){
 			  console.log("1:"+$(this)[0].files.length);
 			  console.log("2:"+$(this)[0].files[0]);
@@ -36,7 +33,7 @@
 			  if($(this)[0].files[0]){
 			   var reader=new FileReader();
 			   reader.onload=function(e){
-			    $("#showimg").attr("src",e.target.result);
+			    $("#showimg").attr("src",e.target.result).css("display","block");
 			   }
 			   reader.readAsDataURL($(this)[0].files[0]);
 			  }
@@ -48,33 +45,31 @@
 </head>
 <body>
 
-<!-- 2)img태그 이용해 출력할 이미지를 미리 볼수 있는곳 만들기 -->
+<!-- (14)updateform.jsp에 writeform.jsp와 동일한 내용을 일부 수정함(수정버튼->등록버튼) -->
  <img id="showimg" 
- style="position: absolute;left:600px;top:60px;max-width: 300px;">
+ style="position: absolute;left:600px;top:60px;max-width: 300px;"
+ src="../upload/${dto.photo}" onerror="this.style.display='none'">
 
 <div style="margin:30px 50px;">
-	<!-- 3)writeform.jsp 에서
-	 post방식으로 작성자,제목,내용(사진 포함) 읽고 보내기 위한 틀,사진저장버튼,등록버튼,이전버튼 생성 -->
-	<form action="./addprocess" method="post" enctype="multipart/form-data">
+	<form action="./updateprocess" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="num" value="${dto.num}">
+		
+		
 		<table class="table table-bordered" style="width:500px;">
-			<!-- 글쓰기 -->
-			<caption align="top">글쓰기</caption>
-			<!-- 작성자 -->
+			<caption align="top">글수정</caption>
 			<tr>
 				<th width="100">작성자</th>
 				<td>
 					<input type="text" name="writer" class="form-control"
-					style="width:150px" autofocus="autofocus" required="required">
+					style="width:150px" autofocus="autofocus" required="required"
+					value="${dto.writer}">
 				</td>
 			</tr>
-			<!-- 제목 -->
 			<tr>
 				<th width="100">제목</th>
 				<td class="input-group">
 					<input type="text" name="subject" class="form-control"
-					  required="required">
-					  <!-- 파일을 업로드 받기 위해 사진을 업로드하면 어떤 파일인지 
-					  출력해 줄 것이지만, 미관상 안보이게 만든다 -->
+					  required="required" value="${dto.subject}">
 					<input type="file" name="upload" id="upload"
 					style="display:none;"> 
 					&nbsp;&nbsp;
@@ -82,19 +77,17 @@
 					<i class="bi bi-camera-fill uploadcamera" ></i> 
 				</td>
 			</tr>
-			<!-- 내용 -->
 			<tr>
 				<th width="100">내용</th>
 				<td>
 					<textarea style="width:100%;height:150px;"
-					name="content" required="required" class="form-control"></textarea>
+					name="content" required="required" class="form-control">${dto.content}</textarea>
 				</td>
 			</tr>
-			<!-- 등록버튼,이전버튼 -->
 			<tr>
 				<td colspan="2" align="center">
 					<button type="submit" class="btn btn-outline-success"
-					style="width:100px;" onclick="history.back()">등록</button>
+					style="width:100px;" onclick="history.back()">수정</button>
 				
 					<button type="button" class="btn btn-outline-success"
 					style="width:100px;" onclick="history.back()">이전</button>

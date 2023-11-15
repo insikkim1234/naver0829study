@@ -1,11 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- (2)boardMapper.xml을 다 지우고 아래 형식으로 바꾼다
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
 		PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 		
 <mapper namespace="board.data.BoardDao">
+	
+</mapper> -->
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="board.data.BoardDao">
+<!-- (7)BoardMapper.xml 에서 totalCountOfBoard,insertBoard수정-->
 	<select id="totalCountOfBoard" resultType="int">
 		select count(*)
 		from simpleboard
 	</select>
-</mapper>		
+	
+	<insert id="insertBoard" parameterType="BoardDto">
+		insert into simpleboard 
+		values (null,#{writer},#{subject},#{content},#{photo},0,now())
+	</insert>
+<!-- (10)BoardMapper.xml에서 id=selectAllBoard수정 -->
+	<select id="selectAllBoard" resultType="BoardDto">
+		select *
+		from simpleboard
+		order by num desc
+	</select>
+	
+	<!-- (15) -->
+	<update id="updateReadcount" parameterType="int">
+		update simpleboard
+		set readcount=readcount+1
+		where num=#{num}
+	</update>
+	
+	<select id="selectOneData" parameterType="int" resultType="BoardDto">
+		select *
+		from simpleboard
+		where num=#{num}
+	</select>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from simpleboard
+		where num=#{num}
+	</delete>
+	
+	<update id="updateBoard" parameterType="BoardDto">
+		update simpleboard
+		set writer=#{writer},subject=#{subject},content=#{content}
+		<if test="photo!=null">
+			,photo=#{photo}
+		</if>
+		where num=#{num}
+	</update>
+	
+</mapper>	
+
+
+
+
+
+
+
+	
