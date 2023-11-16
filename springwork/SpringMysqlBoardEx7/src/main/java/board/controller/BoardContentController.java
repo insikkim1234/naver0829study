@@ -135,6 +135,17 @@ public class BoardContentController {
 		return "redirect:./content?num="+dto.getNum();
 	}
 	
+	//(18)deleteAnswer()작성 
+	@GetMapping("/simple/answerdel")
+	public String deleteAnswer(@RequestParam int num,
+			@RequestParam int idx)
+	{
+		//1)지우고 싶은 인덱스를 받아 출력할 dao의 deleteAnswer(idx) 실행
+		answerDao.deleteAnswer(idx);
+		//2)반환
+		return "redirect:./content?num="+num;
+	}
+	
 }
 
 

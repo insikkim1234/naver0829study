@@ -40,22 +40,23 @@ public class BoardDao {
 	{
 		return session.selectList(nameSpace+"selectAllBoard");
 	}
-	// (15) 
+	// (15) BoardDao에 (14)에서 만들었던 1)2)3)4)5)에 대한 메서드 작성
+	//		1)updateReadCount()생성
 	public void updateReadcount(int num)
 	{
 		session.update(nameSpace+"updateReadcount", num);
 	}
-	
+	//		2)getData()생성
 	public BoardDto getData(int num)
 	{
 		return session.selectOne(nameSpace+"selectOneData", num);
 	}
-	
+	//		3)deleteBoard()생성
 	public void deleteBoard(int num)
 	{
 		session.delete(nameSpace+"deleteBoard", num);
 	}
-	
+	//		4)updateBoard()생성
 	public void updateBoard(BoardDto dto)
 	{
 		session.update(nameSpace+"updateBoard",dto);

@@ -27,6 +27,20 @@
 
   
 </style>
+<script>
+/*(20)x버튼을 누르면 댓글이 삭제되도록 하는 반응성 만들기  */
+	$(function(){
+		$(".answerdel").click(function(){
+			let idx=$(this).attr("idx");
+			let num=$(this).attr("num");
+			
+			let a=confirm("해당 댓글을 삭제하려면 확인 클릭");
+			if(a){
+				location.href=`./answerdel?num=\${num}&idx=\${idx}`;
+			}
+		});
+	});
+</script>
 </head>
 <body>
 <!-- (13)content.jsp작성 해당 튜플의 내용, 닉네임,댓글,저정버튼,글쓰기버튼,목록버튼,수정버튼,삭제버튼 -->
@@ -52,7 +66,8 @@
 					<span style="margin-left:20px;color:gray;font-size:0.9em;">
 						<fmt:formatDate value="${adto.writeday}" pattern="yyyy-MM-dd HH:mm"/>
 					</span>
-					<i class="bi bi-x-lg answerdel" style="cursor:pointer;"></i>
+<!-- (19) content.jsp에서 idx="${adto.idx}" num="${dto.num}" 추가하기 -->
+					<i class="bi bi-x-lg answerdel" style="cursor:pointer;" idx="${adto.idx}" num="${dto.num}"></i>
 					<br>
 				</c:forEach>
 			</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- (3)MemoMapper.xml에서 nameSpace="data.dao.MemoDao"로 변경 -->
+<mapper namespace="data.dao.MemoDao">
+<!--(16)memomapper.xml에 id="insertMemo" 작성  -->
+	<insert id="insertMemo" parameterType="MemoDto">
+		insert into memodb
+		values (null,#{nickname},#{photo},#{memo},0,now())
+	</insert>
+<!-- (18)memomapper.xml에 id="selectAllMemos" 작성 -->	
+	<select id="selectAllMemos" resultType="MemoDto">
+		select *
+		from memodb
+		order by num desc
+	</select>
+</mapper>	
+
+
+
+
+
+
+
+	

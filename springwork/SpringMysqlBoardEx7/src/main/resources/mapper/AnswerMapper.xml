@@ -2,7 +2,8 @@
 <!DOCTYPE mapper
 		PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-		
+<!-- (16)answermapper.xml 에서 id="deleteAnswer" ,
+id="selectAnswerByNum",id="insertAnswer"만들기 -->
 <mapper namespace="board.data.AnswerDao">
 	<insert id="insertAnswer" parameterType="AnswerDto">
 		insert into answersboard
@@ -15,6 +16,12 @@
 		where num=#{num}
 		order by idx desc
 	</select>
+	
+	<delete id="deleteAnswer" parameterType="int">
+		delete 
+		from answersboard
+		where idx=#{idx}
+	</delete>
 </mapper>	
 
 

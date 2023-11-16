@@ -13,4 +13,6 @@ public class BoardDto {
 	private String photo;
 	private int readcount;
 	private Timestamp writeday;
+	//(21)BoardDtoÀÇ ´ñ±Û °¹¼ö ±¸ÇÏ±â
+	private int acount;
 }

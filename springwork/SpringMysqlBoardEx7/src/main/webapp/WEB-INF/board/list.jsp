@@ -54,6 +54,11 @@
 						<c:if test="${dto.photo!='no'}">
 							<i class="bi bi-image photoicon"></i>
 						</c:if>
+<!-- (24)list.jsp에서 달린 댓글의 갯수를 알려주는 부분 작성 -->						
+						<c:if test="${dto.acount>0}">
+							&nbsp;
+							<span style="color:red;">(${dto.acount})</span>
+						</c:if>
 						</a>
 					</td>
 					<!-- 작성자 -->

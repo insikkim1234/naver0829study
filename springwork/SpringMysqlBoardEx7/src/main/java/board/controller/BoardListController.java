@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import board.data.AnswerDao;
 import board.data.BoardDao;
 import board.data.BoardDto;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,9 @@ public class BoardListController {
 	//@Autowired : BoardDao에 autowired 롬복(자동으로 주입되도록 함)을 사용하여 boardDao불러오기
 	@Autowired
 	private BoardDao boardDao;
+	//(22) 댓글을 달기 위한 answerDao 붙이기
+	@Autowired
+	private AnswerDao answerDao;
 	
 	//1)list(Model model) 생성
 		//1.BoardListController.java에서 "/simple/list"를 매핑하면 입력값으로 모델을 입력받음
@@ -29,6 +33,12 @@ public class BoardListController {
 		int totalCount=boardDao.getTotalCount();
 		List<BoardDto> list=boardDao.getAllDatas();
 		
+		//(23)BoardListController에서 list의 acount 의 각 글에 대한 댓글 갯수 저장하기
+		for(BoardDto dto:list)
+		{
+			dto.setAcount(answerDao.getAnswers(dto.getNum()).size());
+		}
+		
 		//3.totalCount,list를 model에 저장
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
@@ -37,4 +47,6 @@ public class BoardListController {
 		//4.list.jsp 반환
 		return "list";
 	}
+	
+	
 }
