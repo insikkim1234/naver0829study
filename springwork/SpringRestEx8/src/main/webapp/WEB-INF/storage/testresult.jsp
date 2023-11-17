@@ -20,6 +20,7 @@
 </style>
 </head>
 <body>
+<!-- (52)testresult.jsp에 사진(원본,좌우80,좌우150)출력해주기 위한 폼 작성 -->
 <h5>80*80사진</h5>
 <img src="${photo80 }" border="1">
 <hr>

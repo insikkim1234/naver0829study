@@ -123,11 +123,14 @@
 			
 		});
 		
-		//메모 삭제
+		//(31)list.jsp에 메모 삭제 반응성 작성
 		$(document).on("click",".memodel",function(){
+			//1)삭제버튼 클릭시num에 내가 클릭한 튜플의 num값을 저장하고 
 			let num=$(this).attr("num");
+			//2)삭제하려면 확인버튼을 누르라는 경고창 출력
 			let a=confirm("삭제하려면 확인");
-			
+			//3)확인버튼을 눌렀으면./delete인 /memo/delete로 입력받은 num을 전달하고
+			//삭제 프로세스 수행 뒤 삭제된 후의 목록 출력
 			if(a){
 				$.ajax({
 					type:"get",
@@ -143,10 +146,13 @@
 				
 			}
 		});
-		//좋아요 수 증가하기
+//(39)$(function) 밑에좋아요 수 증가하기 반응성 만들기
 		$(document).on("click",".increlikes",function(){
+			//1)좋아요 버튼이 눌린 튜플의 num을 받는다
 			let num=$(this).attr("num");
+			//2)$prev에 이전 상태를 저장한다
 			let $prev=$(this).prev();
+			//3)아약스 방식을 통해서 이전의 리스트에 증가한 좋아요 수만 반영해서 출력한다
 			$.ajax({
 				type:"get",
 				dataType:"json",
@@ -179,6 +185,7 @@
 							닉네임:\${item.nickname}<br>
 							메모: \${item.memo}<br>
 							작성일:\${item.writeday}<br>
+/* (38)list.jsp에 하트 그림에 increlikes추가한다(반응성으로 지정할때 쓰기 위함) */					
 							추천수:\<span>\${item.likes}</span><i class="bi bi-suit-heart increlikes" 
 							style="cursor:pointer; color:red; margin-left:5px;" num="\${item.num}"></i><br>
 							<a href="#" class="memodel" num="\${item.num}"

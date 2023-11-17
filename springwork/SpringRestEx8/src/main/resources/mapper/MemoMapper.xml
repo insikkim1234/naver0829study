@@ -17,16 +17,32 @@
 		from memodb
 		order by num desc
 	</select>
+<!-- (28)MemoMapper.xml에 delet id="deleteMemo"작성
+	1)delete
+	  from memodb
+	  where num=#{num}쿼리
+	2)입력받은 num튜플의 데이터를 삭제해주는 역할 -->
 	<delete id="deleteMemo" parameterType="int">
 		delete
 		from memodb
 		where num=#{num}
 	</delete>
+	<!-- (32)memomapper에 update id="updateLikesByNum" 작성
+	1)update memodb
+	  set likes=likes+1
+	  where num=#{num}쿼리
+	2)좋아요를 클릭할때마다 1 늘려주는 역할 -->
 	<update id="updateLikesByNum" parameterType="int">
 		update memodb
 		set likes=likes+1
 		where num=#{num}
 	</update>
+<!-- 	(34)memomapper.xml에  id="countLikes"작성
+	1)select likes
+	  from memodb
+	  where num=#{num}
+	2)좋아요 갯수를 반환하주는 역할 -->
+	
 	<select id="countLikes" parameterType="int" resultType="int">
 		select likes
 		from memodb

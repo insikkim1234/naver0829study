@@ -4,19 +4,31 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-
+<!-- (58)mapper패키지에 memomapper.xml복붙하여  photomapper 로 이름바꾸기 -->
 <mapper namespace="data.dao.MemoDao">
+<!-- (60)PhotoMapper.xml에 id="insertPhoto"작성 -->
+<!-- 	1)insert into photodb
+		  values(null,#{title},#{photo},#{photo80},#{photo150},now())
+		2)photodb에 원본크기 80크기 150크기의 사진 튜플을 삽입하고, 현재 시간이랑 num(자동입력)채워줌 -->
 	<insert id="insertPhoto" parameterType="PhotoDto">
 		insert into photodb
 		values (null,#{title},#{photo},#{photo80},#{photo150},now())
 	</insert>
-	
+<!-- (62)PhotoMapper.xml에 id="selectAllPhotos"작성
+	1)select *
+	from photodb
+	order by num desc
+	2)photodb를 번호 순서대로 내림차순으로 출력 -->	
 	<select id="selectAllPhotos" resultType="PhotoDto">
 		select *
 		from photodb
 		order by num desc
 	</select>
-	
+<!-- (64)PhotoMapper.xml에 id="deletePhoto"작성
+	1)delete
+	from photodb
+	where num=#{num}
+	2)photodb에서 선택한 쿼리를 삭제해준다 -->	
 	<delete id="deletePhoto" parameterType="int">
 		delete
 		from photodb

@@ -19,6 +19,7 @@
   
 </style>
 </head>
+<!--(50)testform.jsp에서 post방식으로 네이버 스토리지에 업로드 해주는 폼태그 작성-->
 <body>
 	<form action="./upload" method="post" enctype="multipart/form-data">
 		<input type="file" name="upload">

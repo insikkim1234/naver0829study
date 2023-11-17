@@ -2,6 +2,8 @@
 <!DOCTYPE configuration
 		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+		<!-- (57)앞에서 복붙해온 mybatis-config.xml에 
+		<typeAlias type="data.dto.PhotoDto" alias="PhotoDto"/>붙여넣기 -->
 <configuration>
 	<typeAliases>
 		<typeAlias type="data.dto.MemoDto" alias="MemoDto"/>

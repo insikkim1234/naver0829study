@@ -28,16 +28,18 @@ public class MemoDao {
 	{
 		return session.selectList(nameSpace+"selectAllMemos");
 	}
-	
+//(29)memodao에 deleteMemo()작성(id="deleteMemo"에 대하여 dao와 연결해주는 쿼리)
+
 	public void deleteMemo(int num)
 	{
 		session.delete(nameSpace+"deleteMemo", num);
 	}
-	
+//(33)MemoDao에 updateLikes(num)작성(id="updateLikesByNum"에 대하여 dao와 연결해주는 쿼리)	
 	public void updateLikes(int num)
 	{
 		session.update(nameSpace+"updateLikesByNum", num);
 	}
+//(35)memodao에 getCountLikes(int num)작성(id="countLikes"에 대하여 dao와 연결해주는 쿼리)	
 	public int getCountLikes(int num)
 	{
 		return session.selectOne(nameSpace+"countLikes", num);

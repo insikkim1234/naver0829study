@@ -27,7 +27,9 @@
 		<beans:property name="defaultEncoding" value="utf-8"/>
 		<beans:property name="maxUploadSize" value="4000000"/>
 	</beans:bean>
-	
+<!-- (42)servlet-context.xml에 
+<context:component-scan base-package="study.spring.day1116,data.*,naver.storage" /> 로
+바꾸기(naver.storage추가) -->	
 	<context:component-scan base-package="study.spring.day1116,data.*,naver.storage" />
 	
 	
