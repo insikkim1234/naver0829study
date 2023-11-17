@@ -2,7 +2,9 @@ package data.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -83,6 +85,27 @@ public class MemoRestController {
 	}
 	//(26)postman의 getdata에서 get방식으로
 	//http://localhost:8080/day1116/memo/view을 입력하면 데이터를 json형태로 볼 수 잇음
+	
+	@GetMapping("/memo/delete")
+	public void deleteMemo(@RequestParam int num)
+	{
+		memoDao.deleteMemo(num);
+	}
+	
+	@GetMapping("/memo/likes")
+	public Map<String, Integer> countLikes(@RequestParam int num)
+	{
+		//일단 좋아요수 증가
+		memoDao.updateLikes(num);
+		//증가된 좋아요수 얻기
+		int likes=memoDao.getCountLikes(num);
+		
+		Map<String,Integer> map=new HashMap<String, Integer>();
+		
+		map.put("likes", likes);
+		
+		return map;
+	}
 }
 
 

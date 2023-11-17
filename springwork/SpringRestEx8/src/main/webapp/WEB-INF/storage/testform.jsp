@@ -19,37 +19,11 @@
   
 </style>
 </head>
-<!-- (4)start.jsp에 내용 추가 -->
 <body>
-<h3 class="alert alert-danger">Spring REST 예제들</h3>
-
-<ul>
-	<li>
-		<a href="./memo/list">간단한 메모 사진한장 업로드 포함</a>
-	</li>
-	<li>
-		<a href="./storage/form">네이버 스토리지에 사진 올려보기연습</a>
-	</li>
-	<li>
-		<a href="./storage/common">네이버 스토리지에 사진 db저장</a>
-	</li>
-</ul>
-<hr>
-<!-- <h5>원본</h5>
-<img src="https://kr.object.ncloudstorage.com/bitcamp-lmh/photo/13.jpg">
-<h5>80*80</h5>
-<img src="https://fr2k01411649.edge.naverncp.com/82uyvvqSQa/photo/13.jpg?type=f&w=80&h=80&faceopt=true&ttype=jpg">
-<h5>150*150</h5>
-<img src="https://fr2k01411649.edge.naverncp.com/82uyvvqSQa/photo/13.jpg?type=f&w=150&h=150&faceopt=true&ttype=jpg"> -->
-
-
-
-
-
-
-
-
-
-
+	<form action="./upload" method="post" enctype="multipart/form-data">
+		<input type="file" name="upload">
+		<br>
+		<button type="submit">네이버 스토리지에 업로드</button>
+	</form>
 </body>
 </html>
