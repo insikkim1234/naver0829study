@@ -13,7 +13,7 @@ public class PhotoDao {
 	
 	@Autowired
 	private  SqlSession session;
-	private String nameSpace="data.dao.PhotoDao";
+	private String nameSpace="data.dao.PhotoDao.";
 //(61)PhotoDao에 id="insertPhoto"에 대한insertPhoto(dto)생성해서  dao에 insert해주는 쿼리 작성	
 	public void insertPhoto(PhotoDto dto)
 	{

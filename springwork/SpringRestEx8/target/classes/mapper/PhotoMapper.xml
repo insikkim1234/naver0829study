@@ -3,15 +3,14 @@
 		PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <!-- (58)mapper패키지에 memomapper.xml복붙하여  photomapper 로 이름바꾸기 -->
-<mapper namespace="data.dao.MemoDao">
+<mapper namespace="data.dao.PhotoDao">
 <!-- (60)PhotoMapper.xml에 id="insertPhoto"작성 -->
 <!-- 	1)insert into photodb
 		  values(null,#{title},#{photo},#{photo80},#{photo150},now())
 		2)photodb에 원본크기 80크기 150크기의 사진 튜플을 삽입하고, 현재 시간이랑 num(자동입력)채워줌 -->
 	<insert id="insertPhoto" parameterType="PhotoDto">
-		insert into photodb
+		insert into photodb 
 		values (null,#{title},#{photo},#{photo80},#{photo150},now())
 	</insert>
 <!-- (62)PhotoMapper.xml에 id="selectAllPhotos"작성
