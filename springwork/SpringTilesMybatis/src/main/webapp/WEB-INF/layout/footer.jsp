@@ -20,6 +20,8 @@
 </style>
 </head>
 <body>
-<h2>footer</h2>
+<!--(26)footer.jsp에 html파트 작성(삼오빌딩 701호) -->
+<h4>주소 : 서울특별시 강남구 역삼동 삼오빌딩</h4>
+<h5><i class="bi bi-people-fill"></i>&nbsp; 비트캠프 701호</h5>
 </body>
 </html>

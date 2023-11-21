@@ -14,13 +14,28 @@
    body * {
        font-family: 'Jua';
    }
-   
+   /* (33)info.jsp에 
+   		css작성 : 밑에서 작성한 html태그의 스타일 작성(너비,높이,테두리,끝부분 둥글게,패딩,배경색
+		html 작성:div태그 안에 주소,전화번호,이름이 적히도록 세팅 */
+    div.bitinfo{
+  	width: 150px;
+  	height: 160px;
+  	border: 2px solid gray;
+  	border-radius: 10px;
+  	padding: 10px;
+  	background-color: #ddd;
+  }
 
   
 </style>
 </head>
 <body>
-<h2>info</h2>
+<div class="bitinfo">
+ 	비트캠프<br>
+ 	강남본원<br><br>
+ 	<i class="bi bi-telephone-fill"></i>&nbsp;02-555-6666<br>
+ 	<i class="bi bi-person-heart" style="font-size: 1.5em;"></i>&nbsp;&nbsp;이문희
+ </div>
 
 </body>
 </html>

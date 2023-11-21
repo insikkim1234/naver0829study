@@ -57,6 +57,7 @@
 </head>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <body>
+<!-- (37)menu.jsp 에 이용자의 선택 항목이 보이도록 작성 -->
 <ul class="menu">
 	<li>
 		<a href="${root}/">Home</a>
@@ -66,7 +67,7 @@
 		<a href="${root}/member/form">회원가입</a>
 	</li>
 	<li>
-		<a href="${root}/login/main">로그인</a>
+		<a href="${root}/member/list">회원명단</a>
 	</li>
 	<li>
 		<a href="${root}/board/list">게시판</a>
