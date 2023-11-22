@@ -44,9 +44,9 @@
    div.main_container div.header{
    	width:100%;
    	height: 100px;
-   	line-height: 130px;
+   
    	text-align: center;
-   	font-size: 30px;
+   	font-size: 13px;
    	font-weight: bold;
    }
    
@@ -83,6 +83,8 @@
    	text-align: center;
    }
    
+ 
+   
 
   
 </style>
@@ -106,9 +108,11 @@
 		<tiles:insertAttribute name="home"/>
 	</div>
 	
-	<div class="footer">
+	
+	
+	<%-- <div class="footer">
 		<tiles:insertAttribute name="footer"/>
-	</div>
+	</div> --%>
 </div>
 </body>
 </html>

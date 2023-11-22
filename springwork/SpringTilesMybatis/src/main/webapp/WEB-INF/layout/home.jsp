@@ -30,7 +30,7 @@
 </head>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <body>
-<h2 style="color: red;text-shadow:6px 6px 6px gray">비트캠프에 오신것을 환영합니다</h2>
+<h2 style="color: red;text-shadow:6px 6px 6px gray">메뚜기월드에 오신것을 환영합니다</h2>
 <div class="mainimage">
 	<img src="${root}/res/photo/K-045.png">
 	<img src="${root}/res/photo/K-041.png">

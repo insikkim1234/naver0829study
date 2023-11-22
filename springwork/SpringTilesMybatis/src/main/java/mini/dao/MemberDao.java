@@ -67,4 +67,58 @@ public class MemberDao {
 	{
 		session.delete(nameSpace+"deleteMember", num);
 	}
+//(48)MemberDao에 myid와 pass를 입력받아서 namespace와 연결시켜 map방식으로 전송하고 0이면false
+//	1이면 true를 리턴해주는 쿼리 작성isLoginCheck()
+	//1)인자로 myid(아이디),pass(비번)을 받음
+	public boolean isLoginCheck(String myid,String pass)
+	{
+		//2)map방식으로 map 생성
+		Map<String, String> map=new HashMap<String, String>();
+		//3)map에 id와 pw넣기
+		map.put("myid",myid);
+		map.put("pass", pass);
+		//4)namespace에 loginCheck붙여서 map과 함께 세션에 저장
+		int n=session.selectOne(nameSpace+"loginCheck", map);
+		//5)겹치는 갯수가 0이면 false, 그 외에는 모두 true리턴
+		return n==0?false:true;
+	}
+//(50)	MemberDao에서 myid를 받아 namespace연결해서 전송하는 쿼리 getData(String myid)작성
+	public MemberDto getData(String myid)
+	{
+		return session.selectOne(nameSpace+"selectDataById", myid);
+	}
+//(51)MemberDao에서  num을 받아서 namespace연결해서 전송하는 쿼리 getData(int num) 작성	
+	public MemberDto getData(int num)
+	{
+		return session.selectOne(nameSpace+"selectDataByNum", num);
+	}
+//(54)MemberDao에서 photo 와  num을 받아서 namespace연결해서 전송하는 쿼리 
+//	updatePhoto(String photo,int num)	
+	public void updatePhoto(String photo,int num)
+	{
+		//1)Map 방식으로 map매핑
+		Map<String, Object> map=new HashMap<String, Object>();
+		//2)map에 입력받은 photo,num저장
+		map.put("photo", photo);
+		map.put("num", num);
+		//3)namespace와 (52)를 연결하여 해당 map을 전송해주는 쿼리 작성 
+		session.update(nameSpace+"updatePhotoByNum", map);
+	}
+
+	/*
+	 * (55)MemberDao에서 photo 와 myid를 받아서 namespace연결해서 전송하는 쿼리 updatePhoto(String
+	 * photo,String myid)작성
+	 */
+	public void updatePhoto(String photo,String myid)
+	{
+		//1)Map 방식으로 map매핑
+		Map<String, Object> map=new HashMap<String, Object>();
+		//2)map에 입력받은 photo,myid저장
+		map.put("photo", photo);
+		map.put("myid", myid);
+		//3)namespace와 (53)를 연결하여 해당 map을 전송해주는 쿼리 작성 
+		session.update(nameSpace+"updatePhotoById", map);
+	}
+	
+	
 }

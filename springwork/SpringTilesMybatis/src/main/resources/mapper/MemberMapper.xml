@@ -40,6 +40,40 @@
 		delete from memberdb
 		where num=#{num}
 	</delete>
+<!-- (47)MemberMapper에 id="loginCheck" 에서 입력한 아이디와 비번이 맞으면 
+맞는 갯수 1을 반환하는 sql 쿼리 생성 -->	
+	<select id="loginCheck" parameterType="Map" 
+	resultType="int">
+			select count(*)
+   			from memberdb
+   			where myid=#{myid} and pass=#{pass}
+	</select>
+<!-- (49)MemberMapper에 id="selectDataById" 에서 입력한 id과 일치하는id가 포함된 튜플을 출력해 주는 쿼리 작성
+		id="selectDataByNum"에서 입력한num과 일치하는 num이 포함된 튜플을 출력해 주는 쿼리 작성 -->	
+	<select id="selectDataById" parameterType="String" 
+	resultType="MemberDto">
+			select *
+			from memberdb
+			where myid=#{myid}
+	</select>
+	<select id="selectDataByNum" parameterType="int" 
+	resultType="MemberDto">
+			select *
+			from memberdb
+			where num=#{num}
+	</select>
+<!-- (52)MemberMapper에 id="updatePhotoByNum"에서 num이 일치하는 곳에 photo 넣기 -->	
+	<update id="updatePhotoByNum" parameterType="Map">
+			update memberdb
+			set photo=#{photo}
+			where num=#{num}
+	</update>
+<!-- (53)MemberMapper에 id="updatePhotoById"에서 myid가 일치하는 곳에 photo넣기 -->	
+	<update id="updatePhotoById" parameterType="Map">
+			update memberdb
+			set photo=#{photo}
+			where myid=#{myid}
+	</update>
 </mapper>	
 
 

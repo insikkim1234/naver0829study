@@ -75,11 +75,17 @@
 			//2)성공하면 변수 s에 튜플을 모두 저장할것임	
 				success:function(res){
 					let s="";
+					//3)s 안에 어트리뷰트 저장
+					//4)s 안에 반복문으로 모든 튜플 출력	
+						/* 1. imgsrc에 받은 사진이 없으면 noimage.png,있으면 해당 이미지를 출력	 */
+						/* 2. 해당 imgsrc를 img태그 안에 출력(원형으로 만듦),이름 출력		 */
+						/* 3.myid,hp,email,gaipday출력	 */	
+						/* 4.db에서 지우기 위한 탈퇴 버튼도 생성 */	
 					s+=
 						`
 						<table class="table table-bordered" 
 							style="width:800px;">
-			//3)어트리뷰트 출력				
+							
 							<thead>
 								<tr>
 									<th width=200>이름</th>
@@ -90,27 +96,27 @@
 									<th width=100>탈퇴</th>
 								</tr>
 							</thead>
-			//4)반복문으로 모든 튜플 출력				
+						
 							<tbody>
 						`;
 					$.each(res,function(idx,item){
-					//1. imgsrc에 받은 사진이 없으면 noimage.png,있으면 해당 이미지를 출력	
+					
 						let imgsrc=item.photo=='no'?"../res/photo/noimage.png":"../res/upload/"+item.photo;
 						s+=
 							`
 							<tr>
 								<td>
-					//2. 해당 imgsrc를 img태그 안에 출력(원형으로 만듦),이름 출력			
+						
 								<img src="\${imgsrc}" width=30 height=30 class="rounded-circle"
 								hspace=5 border=1>
 								\${item.name}
 								</td>
-					//3.myid,hp,email,gaipday출력			
+						
 								<td>\${item.myid}</td>
 								<td>\${item.hp}</td>
 								<td>\${item.email}</td>
 								<td>\${item.gaipday}</td>
-					//4.db에서 지우기 위한 탈퇴 버튼도 생성			
+							
 								<td>
 									<span class="memberdel" num="\${item.num}" 
 									style="cursor:pointer;color:red;">탈퇴</span>
@@ -126,36 +132,46 @@
 </script>
 </head>
 <body>
-<div>
+
 <!-- (20)memberlist.jsp에 몇명의 회원이 있는지 출력해주는 태그 작성 
 (${totalCount})명의 회원이 있습니다) -->
 <!-- (21)resources/photo 에 noimage.png복붙(나중에 이미지등록을 안한 회원을 위한 디폴트 사진) -->
+<!-- (65) 로그인을 안한 상태에서 회원명단을 클릭시 먼저 로그인을 해주세요 라고 출력
+	로그인 시에는 기존 그대로 출력-->	
+	<c:if test="${sessionScope.loginok==null}">
+		<h3>로그인 명단을 보려면 먼저 로그인 필요</h3>
+	</c:if>
+	<c:if test="${sessionScope.loginok!=null}">
+<div>	
 	<h4>현재 총 ${totalCount}명의 회원이 있습니다</h4>
 	<br>
-	<div class="input-group" style="width:400px;">
-		<select id="field" class="form-control">
-			<option hidden disabled selected>
-				검색할필드
-			</option>
-			<option value="name">이름</option>
-			<option value="myid">아이디</option>
-			<option value="hp">핸드폰</option>
-			<option value="email">이메일</option>
-		</select>
-		<!-- (40)memberlist.jsp 에 검색할 필드와 검색단어 입력할수있도록 하는 틀, 전송버튼 생성 -->
-		<input type="text" class="form-control" style="margin-left:10px;"
-		id="word" placeholder="검색단어입력">
-		
-		<button type="button" class="btn btn-success btn-sm" id="btnsearch"
-		style="margin-left:10px;">
-			검색
-		</button>
-		
-		<div class="searchlist" style="margin-top:20px;">
+	<div class="input-group" style="width:900px;">
+		<div class="input-group" style="width:400px;">
+			<select id="field" class="form-control">
+				<option hidden disabled selected>
+					검색할필드
+				</option>
+				<option value="name">이름</option>
+				<option value="myid">아이디</option>
+				<option value="hp">핸드폰</option>
+				<option value="email">이메일</option>
+			</select>
+			<!-- (40)memberlist.jsp 에 검색할 필드와 검색단어 입력할수있도록 하는 틀, 전송버튼 생성 -->
+			<input type="text" class="form-control" style="margin-left:10px;"
+			id="word" placeholder="검색단어입력">
+			
+			<button type="button" class="btn btn-success btn-sm" id="btnsearch"
+			style="margin-left:10px;">
+				검색
+			</button>
+		</div>
+<!--(46)memberlist.jsp에서 footer영역 침범 문제 때문에 마지막 결과 출력하는
+div에 height 300 overflow auto로 스크롤 만들어주기  -->
+		<div class="searchlist" style="margin-top:20px;height:300px;overflow:auto;">
 		</div>
 	</div>
 </div>
-	
+</c:if>	
 
 </body>
 </html>
