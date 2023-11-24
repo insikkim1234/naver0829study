@@ -18,4 +18,6 @@ public class BoardDto {
 	private int relevel;
 	private List<String> photoNames;
 	private Timestamp writeday;
+	//(107)첨부된 사진의 갯수 저장하는boarddto에 private int photocount; 생성
+	private int photocount;
 }

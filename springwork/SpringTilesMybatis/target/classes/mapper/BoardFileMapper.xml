@@ -3,6 +3,32 @@
 		PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mini.dao.BoardFileDao">
-
+<!-- (94)BoardFileMapper.xml에 id="insertPhotoOfFile"작성 
+num,photoname을 입력받아서 board_file에튜플 저장 -->
+	<insert id="insertPhotoOfFile" parameterType="BoardFileDto">
+		insert into board_file (num,photoname)
+		values(#{num},#{photoname})
+	</insert>
+<!-- (97)BoardFileMapper.xml에 id="selectAllPhotoByNum"작성 
+board_file에서입력받은 num과 일치하는 사진 선택 -->	
+	<select id="selectAllPhotoByNum" parameterType="int" resultType="String">
+		select photoname
+		from board_file
+		where num=#{num}
+	</select>
+<!-- (110)boardfilemapper.xml에서  
+id="selectAllDataByNum"으로 입력받은 num과 일치하는 모든 튜플 출력 -->	
+	<select id="selectAllDataByNum" parameterType="int" resultType="BoardFileDto">
+		select *
+		from board_file
+		where num=#{num}
+	</select>
+<!-- (113)boardfilemapper.xml에서 
+id="deletePhotoByIdx" 으로 idx와 동일한 board_file테이블의 튜플 삭제해주는 쿼리 작성 -->	
+	<delete id="deletePhotoByIdx" parameterType="int">
+		delete
+		from board_file
+		where idx=#{idx}
+	</delete>
 
 </mapper>
