@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- (156)GuestMapper에  -->
+<mapper namespace="mini.dao.GuestDao">
+	<!-- 1)id="insertGuest"에 guestdb에 튜플 삽입하는 쿼리 작성 -->
+	<insert id="insertGuest">
+		insert into guestdb
+		values (null,#{guest_nickname},#{guest_photo},#{guest_content},now())
+	</insert>
+	<!--  2)id="selectAllGuest"에 guestdb에서 모든 튜플 출력해주는 쿼리 작성-->
+	<select id="selectAllGuest" resultType="GuestDto">
+		select *
+		from guestdb
+		order by guest_num desc
+	</select>
+	<!-- 3)id="deleteGuest"에 guestdb에서 해당 guest를 삭제해 주는 쿼리 작성-->
+	<delete id="deleteGuest" parameterType="int">
+		delete
+		from guestdb
+		where guest_num=#{guest_num}
+	</delete>
+
+</mapper>

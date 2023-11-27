@@ -76,6 +76,13 @@
 								<i class="bi bi-images" style="color:gray;"></i>
 							</c:if>
 						</a>
+						
+<!-- (143)boardlist에서 목록에서 해당 게시글에 달린 댓글 갯수를 표시할 수 있는 부분 작성 -->
+						<c:if test="${dto.acount>0}">
+							<a href="./content?num=${dto.num}&currentPage=${currentPage}#answerend">
+								<span style="color:red;">(${dto.acount})</span>
+							</a>
+						</c:if>
 					</td>
 		<!-- 4.작성자 -->			
 					<td>

@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import mini.dao.MemberDao;
 import mini.dto.BoardDto;
 import mini.dto.BoardFileDto;
+import mini.service.BoardAnswerService;
 import mini.service.BoardFileService;
 import mini.service.BoardService;
 
@@ -31,6 +32,9 @@ public class BoardController {
 	private BoardService boardService;
 	@Autowired
 	private BoardFileService boardFileService;
+	//(142)boardController에 answerService선언 
+	@Autowired
+	private BoardAnswerService answerService;
 	
 	@Autowired
 	private MemberDao memberDao;
@@ -72,7 +76,7 @@ public class BoardController {
 		  //6.각페이지당 불러올 글의 번호
 		  //만약 10개기준이라면 1페 0~9 2페 10~19
 		  //1페이지:0~2(3페이지므로) 2페이지:11~20 3페이지:31-40
-		  startNum=(currentPage-1)*perPage+1;
+		  startNum=(currentPage-1)*perPage;
 		
 
 		  //7.각 페이지의 시작 번호
@@ -86,6 +90,10 @@ public class BoardController {
 		  {
 			  int pcount=boardFileService.getPhotoByNum(dto.getNum()).size();
 			  dto.setPhotocount(pcount);
+			  
+			  //댓글 갯수 저장
+			  int acount=answerService.getAnswerBoard(dto.getNum()).size();
+			  dto.setAcount(acount);
 		  }
 		  
 		  //10.request 에 담을 값들
@@ -185,7 +193,7 @@ public class BoardController {
 		}
 		
 		//8)새글인 경우는 1페이지로 답글인 경우는 보던 페이지로 이동한다
-		return "redirect:list?currentPage="+currentPage;
+		return "redirect:./list?currentPage="+currentPage;
 	}
 	//(108)boardcontroller.java에 @GetMapping("/board/content") 매핑 후 작성
 		//1)model,num,currentPage를 인자로 받기

@@ -20,4 +20,6 @@ public class BoardDto {
 	private Timestamp writeday;
 	//(107)첨부된 사진의 갯수 저장하는boarddto에 private int photocount; 생성
 	private int photocount;
+	//(141)boarddto에 댓글 갯수 저장할 변수 acount선언
+	private int acount;
 }

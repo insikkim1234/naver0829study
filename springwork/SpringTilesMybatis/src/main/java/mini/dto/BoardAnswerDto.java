@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
+
+//(127)BoardAnswerDto.java 에 board_answer 테이블 에서 사용할 컬럼값 추가
+
 @Data
 public class BoardAnswerDto {
 	private int ansidx;

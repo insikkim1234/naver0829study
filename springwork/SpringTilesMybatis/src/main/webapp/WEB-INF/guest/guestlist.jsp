@@ -20,6 +20,21 @@
 </style>
 </head>
 <body>
-
+<!-- (161)guestlist.jsp의 html파트에 사진한장 선택,방명록 저장,n개의 방명록 글이 있음 출력 -->
+	<div>
+		<form action="./insert" method="post" enctpe="multipart/form-data">
+			<b>사진한장</b>
+			<input type="file" name="upload"><br>
+			<b>닉네임 : </b>
+			<input type="text" name="guest_nickname" required><br>
+			<textarea style="width:300px;height:100px;" name="content" required></textarea>
+			<br>
+			<button type="submit">방명록 저장</button>
+		</form>
+	</div>
+	<hr>
+	<div>
+		<h5>총 ${totalCount}개의 방명록 글이 있습니다</h5>
+	</div>
 </body>
 </html>
