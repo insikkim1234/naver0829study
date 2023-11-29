@@ -5,7 +5,7 @@
 <!-- (156)GuestMapper에  -->
 <mapper namespace="mini.dao.GuestDao">
 	<!-- 1)id="insertGuest"에 guestdb에 튜플 삽입하는 쿼리 작성 -->
-	<insert id="insertGuest">
+	<insert id="insertGuest" parameterType="GuestDto">
 		insert into guestdb
 		values (null,#{guest_nickname},#{guest_photo},#{guest_content},now())
 	</insert>

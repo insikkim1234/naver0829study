@@ -21,10 +21,10 @@ public class NaverConfig {
 	@Value("kr-standard")
 	private String regionName;
 	
-	@Value("8yt6c0uo9is9HLAN1BZH")
+	@Value("Wl89O1YBroDMkhMjmfE7")
 	private String accessKey;
 	
-	@Value("tmFGzatUiqw0C91hSR9Cx9jwPX5DWSzwLFRn3XC0")
+	@Value("vUjzZwn0mvKwXjpoXYm2LCm6dnmrrSRq6EHzOx68")
 	private String secretKey;
 
 }

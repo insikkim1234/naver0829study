@@ -43,7 +43,7 @@ public class BoardController {
 	@GetMapping("/board/list")
 	//(106)boardController.java의 @GetMapping("/board/list")부분에 페이징하는 쿼리 작성
 		//1)인자로 currentPage받을 건데 디폴트값은 1이다
-	public String list(Model model,@RequestParam(defaultValue="1")int currentPage)
+	public String list(Model model,@RequestParam(defaultValue = "1") int currentPage)
 	{
 		
 		//2)페이징처리
@@ -116,7 +116,7 @@ public class BoardController {
 			Model model,
 			
 			@RequestParam(defaultValue = "1") int currentPage,
-			@RequestParam(defaultValue = "0")int num,
+			@RequestParam(defaultValue = "0") int num,
 			@RequestParam(defaultValue = "0") int regroup,
 			@RequestParam(defaultValue = "0") int restep,
 			@RequestParam(defaultValue = "0") int relevel)
@@ -193,7 +193,7 @@ public class BoardController {
 		}
 		
 		//8)새글인 경우는 1페이지로 답글인 경우는 보던 페이지로 이동한다
-		return "redirect:./list?currentPage="+currentPage;
+		return "redirect:list?currentPage="+currentPage;
 	}
 	//(108)boardcontroller.java에 @GetMapping("/board/content") 매핑 후 작성
 		//1)model,num,currentPage를 인자로 받기

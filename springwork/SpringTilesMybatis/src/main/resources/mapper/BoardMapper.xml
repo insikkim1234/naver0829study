@@ -33,11 +33,11 @@ id="selectPagingOfBoard" 리그룹의 내림차순, 리스텝의 오름차순으
 boarddb에 튜플 추가, insert 후에 자동으로 들어간 guest_idx값을 얻어서 dto에 넣어 주는 SELECT LAST_INSERT_ID()
 쿼리 추가-->	
 	<insert id="insertBoard" parameterType="BoardDto">
-		insert into boarddb(writer,myid,subject,content,regroup,restep,relevel,writeday)
+		insert into boarddb (writer,myid,subject,content,regroup,restep,relevel,writeday) 
 		values (#{writer},#{myid},#{subject},#{content},#{regroup},#{restep},#{relevel},now())
 		<selectKey keyProperty="num" resultType="int" order="AFTER">
-				SELECT LAST_INSERT_ID()
-		</selectKey>	
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 	</insert>
 <!-- (88)boardmapper.xml에 id="updateReadCountOfBoard"작성하고 
 입력받은 num과 동일한 튜플의 readcount를 1늘려줌 -->	

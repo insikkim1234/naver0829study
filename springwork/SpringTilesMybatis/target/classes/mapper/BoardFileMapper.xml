@@ -7,7 +7,7 @@
 num,photoname을 입력받아서 board_file에튜플 저장 -->
 	<insert id="insertPhotoOfFile" parameterType="BoardFileDto">
 		insert into board_file (num,photoname)
-		values(#{num},#{photoname})
+		values (#{num},#{photoname})
 	</insert>
 <!-- (97)BoardFileMapper.xml에 id="selectAllPhotoByNum"작성 
 board_file에서입력받은 num과 일치하는 사진 선택 -->	
